@@ -1,0 +1,65 @@
+# Downloads soltos na raiz do projeto: os dados canonicos vivem em
+# data/external/<fonte>/, nunca na raiz.
+/*.csv
+/*.xlsx
+/*.zip
+
+# --- Dados externos (baixados de terceiros) ---
+# Nao versionar: sao grandes, tem procedencia propria (Zenodo/GitHub) e devem
+# ser re-obtidos pelos DOIs e commits registrados em data/catalog/.
+data/external/**
+!data/external/.gitkeep
+
+# Dados derivados grandes
+data/processed/**
+!data/processed/.gitkeep
+
+# Resultados e figuras geradas (manter so o codigo que as produz)
+papers/*/results/**
+!papers/*/results/.gitkeep
+papers/*/figures/*.png
+papers/*/figures/*.pdf
+papers/*/figures/*.svg
+
+# --- Formatos de dados pesados, em qualquer lugar ---
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.parquet
+*.feather
+*.sqlite
+*.db
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# --- R ---
+.Rhistory
+.RData
+.Rproj.user/
+
+# --- Sistema ---
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# --- Credenciais (nunca versionar) ---
+.env
+.env.*
+*.key
+*.pem
+secrets.*
