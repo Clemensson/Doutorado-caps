@@ -63,3 +63,10 @@ desktop.ini
 *.key
 *.pem
 secrets.*
+
+# Pacote HPC: dados e saidas ficam fora do git
+hpc_fcnn_rerun/data/**
+hpc_fcnn_rerun/results*/**
+hpc_fcnn_rerun/logs/**
+hpc_fcnn_rerun/.venv/
+hpc_fcnn_rerun/merged.tsv

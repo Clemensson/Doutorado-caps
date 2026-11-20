@@ -1,0 +1,13 @@
+dataset	arquivo	seq_len	custo_relativo
+AAV2 VP1	CAPSD_AAV2S_Sinai_2021.csv	735	321.6
+GB1	SPG1_STRSG_Wu_2016.csv	448	201.9
+TrpB	TRPB1_THEMA_Tm9D8_Johnston_2024.csv	389	179.3
+ppluGFP2	Q6WV13_9MAXI_Somermeyer_2022.csv	222	140.3
+avGFP	GFP_AEQVI_Sarkisyan_2016.csv	238	132.3
+amacGFP	Q8WTC7_9CNID_Somermeyer_2022.csv	238	127.5
+cgreGFP	D7PM05_CLYGR_Somermeyer_2022.csv	235	99.1
+IGP dehydratase	HIS7_YEAST_Pokusaeva_2019.csv	220	29.1
+scFv	VH14_Li_2023.csv	246	27.7
+Phototropin	PHOT_CHLRE_Chen_2023.csv	118	13.8
+ParD3	F7YBW8_MESOW_Aakre_2015.csv	93	5.5
+NucB	Q65J43_BACLD_g4_Thomas_2025.csv	142	2.9

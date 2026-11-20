@@ -1,0 +1,9 @@
+# Reexecucao da FCNN do MULTI-evolve — dependencias minimas.
+# Deliberadamente NAO inclui o pacote multievolve: ele arrastaria wandb,
+# transformers, fair-esm e Bio, nenhum necessario aqui. A arquitetura foi
+# reimplementada em src/models.py a partir do codigo original.
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+scikit-learn>=1.3
+torch>=2.0
