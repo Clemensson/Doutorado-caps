@@ -1,0 +1,20 @@
+{"dataset": "amacGFP", "featurizacao": "seq", "device": "cuda", "threads": "padrao", "val_frac": 0.1, "epochs": 300, "seed": 0}
+[amacGFP/seq] device=cuda carregando Q8WTC7_9CNID_Somermeyer_2022.csv
+  n=31788  p_mut=1201  L=238  entrada=5236  pool_cv=23161  teste_extra=8627
+  carga 1 fold 0: n_treino=977 fcnn=60ep/5.1s  ridge=0.1s
+  carga 1 fold 1: n_treino=951 fcnn=52ep/3.6s  ridge=0.1s
+  carga 1 fold 2: n_treino=962 fcnn=44ep/3.1s  ridge=0.1s
+  carga 1 fold 3: n_treino=983 fcnn=52ep/3.7s  ridge=0.1s
+  carga 1 fold 4: n_treino=931 fcnn=48ep/3.2s  ridge=0.1s
+  carga 2 fold 0: n_treino=9635 fcnn=76ep/41.2s  ridge=8.3s
+  carga 2 fold 1: n_treino=9624 fcnn=51ep/27.6s  ridge=8.4s
+  carga 2 fold 2: n_treino=9636 fcnn=75ep/40.8s  ridge=8.4s
+  carga 2 fold 3: n_treino=9617 fcnn=78ep/42.2s  ridge=8.4s
+  carga 2 fold 4: n_treino=9580 fcnn=74ep/39.8s  ridge=8.3s
+  carga 3 fold 0: n_treino=18528 fcnn=86ep/51.8s  ridge=15.0s
+  carga 3 fold 1: n_treino=18529 fcnn=85ep/51.3s  ridge=15.0s
+  carga 3 fold 2: n_treino=18529 fcnn=95ep/57.4s  ridge=14.9s
+  carga 3 fold 3: n_treino=18529 fcnn=70ep/42.3s  ridge=15.0s
+  carga 3 fold 4: n_treino=18529 fcnn=101ep/61.0s  ridge=14.9s
+
+escrito: results/amacGFP_seq.tsv  (54 linhas)

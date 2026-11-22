@@ -1,0 +1,47 @@
+
+--- mut: delta Spearman por conjunto (extrapolação; aditivo - FCNN) ---
+dataset
+AAV2 VP1          -0.043
+ppluGFP2          -0.032
+Phototropin       -0.015
+GB1               -0.013
+NucB               0.004
+avGFP              0.009
+TrpB               0.014
+cgreGFP            0.017
+scFv               0.026
+IGP dehydratase    0.043
+ParD3              0.050
+amacGFP            0.065
+
+--- seq: delta Spearman por conjunto (extrapolação; aditivo - FCNN) ---
+dataset
+Phototropin       -0.034
+AAV2 VP1          -0.013
+avGFP              0.003
+amacGFP            0.003
+scFv               0.004
+cgreGFP            0.004
+ppluGFP2           0.008
+TrpB               0.012
+GB1                0.031
+NucB               0.060
+IGP dehydratase    0.074
+ParD3              0.078
+
+=== resumo (unidade = conjunto; sem células 'all') ===
+featurizacao  metrica       regime  n_conjuntos  delta_medio  ic95_lo  ic95_hi aditivo_melhor  p_sinais  p_wilcoxon  n_celulas
+         mut spearman extrapolacao           12       0.0106  -0.0068   0.0283           8/12    0.3877      0.3394        594
+         mut spearman interpolacao           12      -0.0194  -0.0437   0.0075           2/12    0.0386      0.0771         24
+         mut spearman        todos           12       0.0070  -0.0092   0.0239           8/12    0.3877      0.5186        618
+         mut  pearson extrapolacao           12      -0.0448  -0.0923  -0.0048           4/12    0.3877      0.1514        594
+         mut  pearson interpolacao           12      -0.1338  -0.2265  -0.0554           1/12    0.0063      0.0015         24
+         mut  pearson        todos           12      -0.0560  -0.1101  -0.0117           3/12    0.1460      0.0640        618
+         seq spearman extrapolacao           12       0.0191   0.0009   0.0386          10/12    0.0386      0.0771        594
+         seq spearman interpolacao           12      -0.0245  -0.0461  -0.0015           1/12    0.0063      0.0210         24
+         seq spearman        todos           12       0.0143  -0.0020   0.0319           9/12    0.1460      0.0923        618
+         seq  pearson extrapolacao           12      -0.0155  -0.0554   0.0226           4/12    0.3877      0.4697        594
+         seq  pearson interpolacao           12      -0.1304  -0.2113  -0.0613           1/12    0.0063      0.0010         24
+         seq  pearson        todos           12      -0.0289  -0.0756   0.0132           3/12    0.1460      0.1514        618
+
+salvo em por_conjunto.tsv

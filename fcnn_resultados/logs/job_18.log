@@ -1,0 +1,20 @@
+{"dataset": "Phototropin", "featurizacao": "seq", "device": "cuda", "threads": "padrao", "val_frac": 0.1, "epochs": 300, "seed": 0}
+[Phototropin/seq] device=cuda carregando PHOT_CHLRE_Chen_2023.csv
+  n=167529  p_mut=2122  L=118  entrada=2596  pool_cv=3276  teste_extra=164253
+  carga 1 fold 0: n_treino=1716 fcnn=34ep/3.9s  ridge=0.7s
+  carga 1 fold 1: n_treino=1697 fcnn=34ep/3.0s  ridge=0.6s
+  carga 1 fold 2: n_treino=1688 fcnn=35ep/3.0s  ridge=0.5s
+  carga 1 fold 3: n_treino=1692 fcnn=58ep/5.0s  ridge=0.5s
+  carga 1 fold 4: n_treino=1695 fcnn=48ep/4.2s  ridge=0.6s
+  carga 2 fold 0: n_treino=1861 fcnn=38ep/4.1s  ridge=0.7s
+  carga 2 fold 1: n_treino=1824 fcnn=65ep/7.0s  ridge=0.6s
+  carga 2 fold 2: n_treino=1838 fcnn=71ep/7.7s  ridge=0.7s
+  carga 2 fold 3: n_treino=1840 fcnn=37ep/4.0s  ridge=0.7s
+  carga 2 fold 4: n_treino=1829 fcnn=53ep/5.7s  ridge=0.6s
+  carga 3 fold 0: n_treino=2620 fcnn=39ep/6.1s  ridge=10.8s
+  carga 3 fold 1: n_treino=2621 fcnn=66ep/10.3s  ridge=10.8s
+  carga 3 fold 2: n_treino=2621 fcnn=41ep/6.4s  ridge=10.7s
+  carga 3 fold 3: n_treino=2621 fcnn=33ep/5.1s  ridge=10.8s
+  carga 3 fold 4: n_treino=2621 fcnn=41ep/6.3s  ridge=10.8s
+
+escrito: results/Phototropin_seq.tsv  (84 linhas)

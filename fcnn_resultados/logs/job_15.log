@@ -1,0 +1,20 @@
+{"dataset": "IGP dehydratase", "featurizacao": "mut", "device": "cuda", "threads": "padrao", "val_frac": 0.1, "epochs": 300, "seed": 0}
+[IGP dehydratase/mut] device=cuda carregando HIS7_YEAST_Pokusaeva_2019.csv
+  n=254782  p_mut=168  L=0  entrada=168  pool_cv=7246  teste_extra=247536
+  carga 1 fold 0: n_treino=136 fcnn=37ep/0.9s  ridge=0.0s
+  carga 1 fold 1: n_treino=139 fcnn=47ep/0.1s  ridge=0.0s
+  carga 1 fold 2: n_treino=133 fcnn=49ep/0.1s  ridge=0.0s
+  carga 1 fold 3: n_treino=131 fcnn=58ep/0.1s  ridge=0.0s
+  carga 1 fold 4: n_treino=133 fcnn=28ep/0.0s  ridge=0.0s
+  carga 2 fold 0: n_treino=1134 fcnn=48ep/0.2s  ridge=0.0s
+  carga 2 fold 1: n_treino=1148 fcnn=56ep/0.2s  ridge=0.0s
+  carga 2 fold 2: n_treino=1117 fcnn=63ep/0.2s  ridge=0.0s
+  carga 2 fold 3: n_treino=1117 fcnn=42ep/0.1s  ridge=0.0s
+  carga 2 fold 4: n_treino=1128 fcnn=44ep/0.1s  ridge=0.0s
+  carga 3 fold 0: n_treino=5796 fcnn=59ep/10.7s  ridge=0.1s
+  carga 3 fold 1: n_treino=5797 fcnn=83ep/15.1s  ridge=0.1s
+  carga 3 fold 2: n_treino=5797 fcnn=86ep/15.6s  ridge=0.1s
+  carga 3 fold 3: n_treino=5797 fcnn=66ep/12.0s  ridge=0.1s
+  carga 3 fold 4: n_treino=5797 fcnn=84ep/15.3s  ridge=0.1s
+
+escrito: results/IGP_dehydratase_mut.tsv  (78 linhas)

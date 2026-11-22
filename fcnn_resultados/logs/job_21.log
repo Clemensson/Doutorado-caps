@@ -1,0 +1,20 @@
+{"dataset": "ParD3", "featurizacao": "mut", "device": "cuda", "threads": "padrao", "val_frac": 0.1, "epochs": 300, "seed": 0}
+[ParD3/mut] device=cuda carregando F7YBW8_MESOW_Aakre_2015.csv
+  n=9192  p_mut=37  L=0  entrada=37  pool_cv=3334  teste_extra=5858
+  carga 1 fold 0: n_treino=26 fcnn=44ep/1.0s  ridge=0.0s
+  carga 1 fold 1: n_treino=32 fcnn=38ep/0.0s  ridge=0.0s
+  carga 1 fold 2: n_treino=29 fcnn=43ep/0.0s  ridge=0.0s
+  carga 1 fold 3: n_treino=31 fcnn=45ep/0.1s  ridge=0.0s
+  carga 1 fold 4: n_treino=30 fcnn=31ep/0.0s  ridge=0.0s
+  carga 2 fold 0: n_treino=434 fcnn=69ep/0.5s  ridge=0.0s
+  carga 2 fold 1: n_treino=425 fcnn=65ep/0.4s  ridge=0.0s
+  carga 2 fold 2: n_treino=431 fcnn=123ep/0.9s  ridge=0.0s
+  carga 2 fold 3: n_treino=441 fcnn=106ep/0.8s  ridge=0.0s
+  carga 2 fold 4: n_treino=413 fcnn=132ep/0.8s  ridge=0.0s
+  carga 3 fold 0: n_treino=2667 fcnn=140ep/17.6s  ridge=0.0s
+  carga 3 fold 1: n_treino=2667 fcnn=154ep/19.2s  ridge=0.0s
+  carga 3 fold 2: n_treino=2667 fcnn=141ep/17.7s  ridge=0.0s
+  carga 3 fold 3: n_treino=2667 fcnn=139ep/17.3s  ridge=0.0s
+  carga 3 fold 4: n_treino=2668 fcnn=145ep/18.2s  ridge=0.0s
+
+escrito: results/ParD3_mut.tsv  (18 linhas)

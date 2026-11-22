@@ -1,0 +1,20 @@
+{"dataset": "ppluGFP2", "featurizacao": "seq", "device": "cuda", "threads": "padrao", "val_frac": 0.1, "epochs": 300, "seed": 0}
+[ppluGFP2/seq] device=cuda carregando Q6WV13_9MAXI_Somermeyer_2022.csv
+  n=30443  p_mut=1141  L=222  entrada=4884  pool_cv=25370  teste_extra=5073
+  carga 1 fold 0: n_treino=907 fcnn=61ep/5.2s  ridge=0.1s
+  carga 1 fold 1: n_treino=901 fcnn=50ep/3.6s  ridge=0.1s
+  carga 1 fold 2: n_treino=920 fcnn=19ep/1.4s  ridge=0.1s
+  carga 1 fold 3: n_treino=934 fcnn=51ep/3.7s  ridge=0.1s
+  carga 1 fold 4: n_treino=902 fcnn=52ep/3.7s  ridge=0.1s
+  carga 2 fold 0: n_treino=13531 fcnn=61ep/45.9s  ridge=10.3s
+  carga 2 fold 1: n_treino=13453 fcnn=62ep/46.5s  ridge=10.2s
+  carga 2 fold 2: n_treino=13499 fcnn=34ep/25.7s  ridge=10.3s
+  carga 2 fold 3: n_treino=13488 fcnn=37ep/27.8s  ridge=10.2s
+  carga 2 fold 4: n_treino=13461 fcnn=42ep/31.4s  ridge=10.2s
+  carga 3 fold 0: n_treino=20296 fcnn=57ep/64.7s  ridge=14.9s
+  carga 3 fold 1: n_treino=20296 fcnn=53ep/60.2s  ridge=14.9s
+  carga 3 fold 2: n_treino=20296 fcnn=45ep/51.1s  ridge=14.9s
+  carga 3 fold 3: n_treino=20296 fcnn=76ep/86.3s  ridge=14.8s
+  carga 3 fold 4: n_treino=20296 fcnn=78ep/88.6s  ridge=14.9s
+
+escrito: results/ppluGFP2_seq.tsv  (54 linhas)

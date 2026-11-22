@@ -1,0 +1,20 @@
+{"dataset": "scFv", "featurizacao": "mut", "device": "cuda", "threads": "padrao", "val_frac": 0.1, "epochs": 300, "seed": 0}
+[scFv/mut] device=cuda carregando VH14_Li_2023.csv
+  n=6066  p_mut=437  L=0  entrada=437  pool_cv=5529  teste_extra=537
+  carga 1 fold 0: n_treino=350 fcnn=18ep/1.0s  ridge=0.0s
+  carga 1 fold 1: n_treino=361 fcnn=18ep/0.1s  ridge=0.0s
+  carga 1 fold 2: n_treino=346 fcnn=18ep/0.1s  ridge=0.0s
+  carga 1 fold 3: n_treino=339 fcnn=19ep/0.1s  ridge=0.0s
+  carga 1 fold 4: n_treino=352 fcnn=24ep/0.2s  ridge=0.0s
+  carga 2 fold 0: n_treino=1279 fcnn=70ep/0.9s  ridge=0.2s
+  carga 2 fold 1: n_treino=1283 fcnn=62ep/0.9s  ridge=0.3s
+  carga 2 fold 2: n_treino=1255 fcnn=66ep/0.8s  ridge=0.3s
+  carga 2 fold 3: n_treino=1276 fcnn=54ep/0.6s  ridge=0.3s
+  carga 2 fold 4: n_treino=1263 fcnn=56ep/0.7s  ridge=0.3s
+  carga 3 fold 0: n_treino=4423 fcnn=61ep/7.6s  ridge=0.8s
+  carga 3 fold 1: n_treino=4423 fcnn=46ep/5.7s  ridge=0.7s
+  carga 3 fold 2: n_treino=4423 fcnn=56ep/7.0s  ridge=0.7s
+  carga 3 fold 3: n_treino=4423 fcnn=42ep/5.2s  ridge=0.7s
+  carga 3 fold 4: n_treino=4424 fcnn=37ep/4.6s  ridge=0.7s
+
+escrito: results/scFv_mut.tsv  (30 linhas)

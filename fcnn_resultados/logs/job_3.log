@@ -1,0 +1,20 @@
+{"dataset": "GB1", "featurizacao": "mut", "device": "cuda", "threads": "padrao", "val_frac": 0.1, "epochs": 300, "seed": 0}
+[GB1/mut] device=cuda carregando SPG1_STRSG_Wu_2016.csv
+  n=149360  p_mut=76  L=0  entrada=76  pool_cv=28186  teste_extra=121174
+  carga 1 fold 0: n_treino=66 fcnn=30ep/1.1s  ridge=0.0s
+  carga 1 fold 1: n_treino=61 fcnn=22ep/0.1s  ridge=0.0s
+  carga 1 fold 2: n_treino=59 fcnn=17ep/0.1s  ridge=0.0s
+  carga 1 fold 3: n_treino=64 fcnn=17ep/0.1s  ridge=0.0s
+  carga 1 fold 4: n_treino=54 fcnn=39ep/0.2s  ridge=0.0s
+  carga 2 fold 0: n_treino=1768 fcnn=171ep/14.2s  ridge=0.0s
+  carga 2 fold 1: n_treino=1747 fcnn=130ep/10.6s  ridge=0.0s
+  carga 2 fold 2: n_treino=1713 fcnn=133ep/10.8s  ridge=0.0s
+  carga 2 fold 3: n_treino=1740 fcnn=103ep/8.4s  ridge=0.0s
+  carga 2 fold 4: n_treino=1700 fcnn=131ep/10.5s  ridge=0.0s
+  carga 3 fold 0: n_treino=22548 fcnn=62ep/97.1s  ridge=0.3s
+  carga 3 fold 1: n_treino=22549 fcnn=55ep/86.2s  ridge=0.3s
+  carga 3 fold 2: n_treino=22549 fcnn=83ep/130.3s  ridge=0.3s
+  carga 3 fold 3: n_treino=22549 fcnn=90ep/141.3s  ridge=0.4s
+  carga 3 fold 4: n_treino=22549 fcnn=63ep/98.7s  ridge=0.3s
+
+escrito: results/GB1_mut.tsv  (18 linhas)

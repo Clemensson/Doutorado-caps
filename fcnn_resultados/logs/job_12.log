@@ -1,0 +1,20 @@
+{"dataset": "cgreGFP", "featurizacao": "seq", "device": "cuda", "threads": "padrao", "val_frac": 0.1, "epochs": 300, "seed": 0}
+[cgreGFP/seq] device=cuda carregando D7PM05_CLYGR_Somermeyer_2022.csv
+  n=21381  p_mut=1169  L=235  entrada=5170  pool_cv=16290  teste_extra=5091
+  carga 1 fold 0: n_treino=937 fcnn=59ep/4.9s  ridge=0.1s
+  carga 1 fold 1: n_treino=953 fcnn=45ep/3.0s  ridge=0.1s
+  carga 1 fold 2: n_treino=927 fcnn=60ep/4.0s  ridge=0.1s
+  carga 1 fold 3: n_treino=933 fcnn=21ep/1.4s  ridge=0.1s
+  carga 1 fold 4: n_treino=926 fcnn=55ep/3.7s  ridge=0.1s
+  carga 2 fold 0: n_treino=8539 fcnn=105ep/29.3s  ridge=7.2s
+  carga 2 fold 1: n_treino=8550 fcnn=88ep/24.6s  ridge=7.2s
+  carga 2 fold 2: n_treino=8581 fcnn=128ep/35.9s  ridge=7.2s
+  carga 2 fold 3: n_treino=8550 fcnn=103ep/28.8s  ridge=7.2s
+  carga 2 fold 4: n_treino=8524 fcnn=71ep/19.7s  ridge=7.1s
+  carga 3 fold 0: n_treino=13032 fcnn=70ep/33.3s  ridge=10.4s
+  carga 3 fold 1: n_treino=13032 fcnn=104ep/49.4s  ridge=10.4s
+  carga 3 fold 2: n_treino=13032 fcnn=97ep/45.9s  ridge=10.3s
+  carga 3 fold 3: n_treino=13032 fcnn=73ep/34.7s  ridge=10.4s
+  carga 3 fold 4: n_treino=13032 fcnn=109ep/51.7s  ridge=10.4s
+
+escrito: results/cgreGFP_seq.tsv  (60 linhas)

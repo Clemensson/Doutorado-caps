@@ -1,0 +1,54 @@
+24 arquivos, 1380 linhas -> merged.tsv
+
+== cobertura ==
+modelo    featurizacao
+additive  mut             12
+fcnn      mut             12
+          seq             12
+
+== Spearman global por modelo e carga de treino ==
+carga_treino                1       2       3
+modelo   featurizacao                        
+additive mut           0.3376  0.6090  0.6494
+fcnn     mut           0.2001  0.5944  0.6740
+         seq           0.2459  0.5559  0.6586
+
+== delta (aditivo - FCNN), pareado nos mesmos folds ==
+
+  featurizacao 'mut': 345 celulas
+    delta Spearman medio +0.0030  mediana -0.0034
+    aditivo >= FCNN em 159/345
+    Wilcoxon p = 0.741
+    delta Pearson medio -0.0258
+    excesso de vantagem da FCNN em Pearson: +0.0288
+
+  featurizacao 'seq': 345 celulas
+    delta Spearman medio +0.0108  mediana +0.0000
+    aditivo >= FCNN em 187/345
+    Wilcoxon p = 0.444
+    delta Pearson medio -0.0091
+    excesso de vantagem da FCNN em Pearson: +0.0199
+
+== interpolacao vs extrapolacao (delta Spearman) ==
+                           size    mean  median
+featurizacao regime                            
+mut          extrapolacao   297 -0.0009 -0.0037
+             interpolacao    12 -0.0194 -0.0138
+seq          extrapolacao   297  0.0081  0.0000
+             interpolacao    12 -0.0245 -0.0144
+
+== custo efetivo ==
+                 segundos  epocas
+dataset                          
+GB1                1378.6    68.0
+AAV2 VP1            630.1    77.0
+avGFP               425.4    63.5
+ppluGFP2            350.8    47.0
+amacGFP             263.8    51.0
+cgreGFP             214.9    71.0
+TrpB                200.9    85.0
+IGP dehydratase     101.9    65.5
+ParD3                90.1   108.5
+scFv                 59.0    49.0
+Phototropin          34.1    37.5
+NucB                  4.0    44.5

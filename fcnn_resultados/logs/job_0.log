@@ -1,0 +1,20 @@
+{"dataset": "AAV2 VP1", "featurizacao": "seq", "device": "cuda", "threads": "padrao", "val_frac": 0.1, "epochs": 300, "seed": 0}
+[AAV2 VP1/seq] device=cuda carregando CAPSD_AAV2S_Sinai_2021.csv
+  n=42328  p_mut=532  L=735  entrada=16170  pool_cv=18271  teste_extra=24057
+  carga 1 fold 0: n_treino=441 fcnn=106ep/5.2s  ridge=0.0s
+  carga 1 fold 1: n_treino=406 fcnn=108ep/4.0s  ridge=0.0s
+  carga 1 fold 2: n_treino=436 fcnn=112ep/4.5s  ridge=0.0s
+  carga 1 fold 3: n_treino=430 fcnn=120ep/4.8s  ridge=0.0s
+  carga 1 fold 4: n_treino=415 fcnn=95ep/3.6s  ridge=0.0s
+  carga 2 fold 0: n_treino=9096 fcnn=106ep/106.8s  ridge=1.9s
+  carga 2 fold 1: n_treino=9056 fcnn=77ep/77.7s  ridge=1.9s
+  carga 2 fold 2: n_treino=9117 fcnn=124ep/125.8s  ridge=1.9s
+  carga 2 fold 3: n_treino=9103 fcnn=102ep/103.3s  ridge=1.9s
+  carga 2 fold 4: n_treino=9088 fcnn=99ep/100.1s  ridge=1.9s
+  carga 3 fold 0: n_treino=14616 fcnn=93ep/131.1s  ridge=3.0s
+  carga 3 fold 1: n_treino=14617 fcnn=106ep/149.4s  ridge=3.0s
+  carga 3 fold 2: n_treino=14617 fcnn=101ep/142.2s  ridge=3.0s
+  carga 3 fold 3: n_treino=14617 fcnn=75ep/105.8s  ridge=3.0s
+  carga 3 fold 4: n_treino=14617 fcnn=72ep/101.6s  ridge=3.0s
+
+escrito: results/AAV2_VP1_seq.tsv  (162 linhas)

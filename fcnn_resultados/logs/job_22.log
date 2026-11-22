@@ -1,0 +1,20 @@
+{"dataset": "NucB", "featurizacao": "seq", "device": "cuda", "threads": "padrao", "val_frac": 0.1, "epochs": 300, "seed": 0}
+[NucB/seq] device=cuda carregando Q65J43_BACLD_g4_Thomas_2025.csv
+  n=927  p_mut=221  L=142  entrada=3124  pool_cv=666  teste_extra=261
+  carga 1 fold 0: n_treino=177 fcnn=28ep/1.0s  ridge=0.0s
+  carga 1 fold 1: n_treino=182 fcnn=29ep/0.1s  ridge=0.0s
+  carga 1 fold 2: n_treino=177 fcnn=30ep/0.1s  ridge=0.0s
+  carga 1 fold 3: n_treino=175 fcnn=25ep/0.1s  ridge=0.0s
+  carga 1 fold 4: n_treino=173 fcnn=42ep/0.1s  ridge=0.0s
+  carga 2 fold 0: n_treino=376 fcnn=101ep/0.2s  ridge=0.0s
+  carga 2 fold 1: n_treino=370 fcnn=22ep/0.1s  ridge=0.0s
+  carga 2 fold 2: n_treino=369 fcnn=22ep/0.1s  ridge=0.0s
+  carga 2 fold 3: n_treino=361 fcnn=91ep/0.2s  ridge=0.0s
+  carga 2 fold 4: n_treino=372 fcnn=18ep/0.0s  ridge=0.0s
+  carga 3 fold 0: n_treino=532 fcnn=300ep/1.5s  ridge=0.0s
+  carga 3 fold 1: n_treino=533 fcnn=85ep/0.4s  ridge=0.0s
+  carga 3 fold 2: n_treino=533 fcnn=16ep/0.1s  ridge=0.0s
+  carga 3 fold 3: n_treino=533 fcnn=120ep/0.6s  ridge=0.0s
+  carga 3 fold 4: n_treino=533 fcnn=300ep/1.5s  ridge=0.0s
+
+escrito: results/NucB_seq.tsv  (42 linhas)

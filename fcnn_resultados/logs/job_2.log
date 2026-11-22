@@ -1,0 +1,20 @@
+{"dataset": "GB1", "featurizacao": "seq", "device": "cuda", "threads": "padrao", "val_frac": 0.1, "epochs": 300, "seed": 0}
+[GB1/seq] device=cuda carregando SPG1_STRSG_Wu_2016.csv
+  n=149360  p_mut=76  L=448  entrada=9856  pool_cv=28186  teste_extra=121174
+  carga 1 fold 0: n_treino=66 fcnn=52ep/1.3s  ridge=0.0s
+  carga 1 fold 1: n_treino=61 fcnn=22ep/0.2s  ridge=0.0s
+  carga 1 fold 2: n_treino=59 fcnn=26ep/0.2s  ridge=0.0s
+  carga 1 fold 3: n_treino=64 fcnn=19ep/0.1s  ridge=0.0s
+  carga 1 fold 4: n_treino=54 fcnn=34ep/0.2s  ridge=0.0s
+  carga 2 fold 0: n_treino=1768 fcnn=64ep/8.0s  ridge=0.0s
+  carga 2 fold 1: n_treino=1747 fcnn=100ep/12.3s  ridge=0.0s
+  carga 2 fold 2: n_treino=1713 fcnn=94ep/11.3s  ridge=0.0s
+  carga 2 fold 3: n_treino=1740 fcnn=73ep/8.9s  ridge=0.0s
+  carga 2 fold 4: n_treino=1700 fcnn=57ep/6.8s  ridge=0.0s
+  carga 3 fold 0: n_treino=22548 fcnn=168ep/348.8s  ridge=0.3s
+  carga 3 fold 1: n_treino=22549 fcnn=27ep/56.0s  ridge=0.3s
+  carga 3 fold 2: n_treino=22549 fcnn=179ep/373.0s  ridge=0.3s
+  carga 3 fold 3: n_treino=22549 fcnn=139ep/288.8s  ridge=0.3s
+  carga 3 fold 4: n_treino=22549 fcnn=150ep/312.1s  ridge=0.3s
+
+escrito: results/GB1_seq.tsv  (18 linhas)

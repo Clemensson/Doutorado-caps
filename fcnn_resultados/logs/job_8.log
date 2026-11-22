@@ -1,0 +1,20 @@
+{"dataset": "avGFP", "featurizacao": "seq", "device": "cuda", "threads": "padrao", "val_frac": 0.1, "epochs": 300, "seed": 0}
+[avGFP/seq] device=cuda carregando GFP_AEQVI_Sarkisyan_2016.csv
+  n=43755  p_mut=1084  L=238  entrada=5236  pool_cv=24079  teste_extra=19676
+  carga 1 fold 0: n_treino=853 fcnn=63ep/4.8s  ridge=0.1s
+  carga 1 fold 1: n_treino=880 fcnn=34ep/2.2s  ridge=0.1s
+  carga 1 fold 2: n_treino=879 fcnn=29ep/1.9s  ridge=0.1s
+  carga 1 fold 3: n_treino=888 fcnn=78ep/4.9s  ridge=0.1s
+  carga 1 fold 4: n_treino=836 fcnn=68ep/4.1s  ridge=0.1s
+  carga 2 fold 0: n_treino=10452 fcnn=120ep/36.4s  ridge=7.4s
+  carga 2 fold 1: n_treino=10408 fcnn=77ep/23.2s  ridge=7.4s
+  carga 2 fold 2: n_treino=10474 fcnn=90ep/27.3s  ridge=7.4s
+  carga 2 fold 3: n_treino=10440 fcnn=82ep/24.8s  ridge=7.4s
+  carga 2 fold 4: n_treino=10378 fcnn=47ep/14.1s  ridge=7.3s
+  carga 3 fold 0: n_treino=19263 fcnn=66ep/71.7s  ridge=12.8s
+  carga 3 fold 1: n_treino=19263 fcnn=82ep/88.9s  ridge=12.8s
+  carga 3 fold 2: n_treino=19263 fcnn=69ep/74.9s  ridge=12.8s
+  carga 3 fold 3: n_treino=19263 fcnn=92ep/99.7s  ridge=12.8s
+  carga 3 fold 4: n_treino=19264 fcnn=83ep/90.2s  ridge=12.8s
+
+escrito: results/avGFP_seq.tsv  (72 linhas)

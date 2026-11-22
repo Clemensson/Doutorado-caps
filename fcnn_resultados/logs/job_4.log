@@ -1,0 +1,20 @@
+{"dataset": "TrpB", "featurizacao": "seq", "device": "cuda", "threads": "padrao", "val_frac": 0.1, "epochs": 300, "seed": 0}
+[TrpB/seq] device=cuda carregando TRPB1_THEMA_Tm9D8_Johnston_2024.csv
+  n=159129  p_mut=77  L=389  entrada=8558  pool_cv=29611  teste_extra=129518
+  carga 1 fold 0: n_treino=63 fcnn=18ep/1.0s  ridge=0.0s
+  carga 1 fold 1: n_treino=63 fcnn=110ep/0.2s  ridge=0.0s
+  carga 1 fold 2: n_treino=62 fcnn=17ep/0.0s  ridge=0.0s
+  carga 1 fold 3: n_treino=65 fcnn=17ep/0.0s  ridge=0.0s
+  carga 1 fold 4: n_treino=55 fcnn=22ep/0.0s  ridge=0.0s
+  carga 2 fold 0: n_treino=1806 fcnn=57ep/6.8s  ridge=0.0s
+  carga 2 fold 1: n_treino=1809 fcnn=54ep/6.4s  ridge=0.0s
+  carga 2 fold 2: n_treino=1807 fcnn=124ep/14.7s  ridge=0.0s
+  carga 2 fold 3: n_treino=1789 fcnn=60ep/7.0s  ridge=0.0s
+  carga 2 fold 4: n_treino=1761 fcnn=104ep/12.0s  ridge=0.0s
+  carga 3 fold 0: n_treino=23688 fcnn=137ep/34.9s  ridge=0.2s
+  carga 3 fold 1: n_treino=23689 fcnn=154ep/39.3s  ridge=0.2s
+  carga 3 fold 2: n_treino=23689 fcnn=117ep/29.9s  ridge=0.2s
+  carga 3 fold 3: n_treino=23689 fcnn=132ep/33.6s  ridge=0.2s
+  carga 3 fold 4: n_treino=23689 fcnn=249ep/63.1s  ridge=0.3s
+
+escrito: results/TrpB_seq.tsv  (18 linhas)
