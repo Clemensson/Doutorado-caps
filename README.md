@@ -1,8 +1,5 @@
 # Epistasia em MLDE: atribuição de desempenho e viés de nomeação
 
-Projeto de tese por capítulos. Cada capítulo é um artigo publicável, representando um
-passo intermediário do desenvolvimento.
-
 **Pergunta guarda-chuva.** Em MLDE para multimutantes, quanto do desempenho vem de
 epistasia genuinamente aprendida, e sob que condições — volume de dados, representação
 e critério de nomeação — a modelagem epistática gera ganho real sobre um nulo aditivo?
