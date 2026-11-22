@@ -162,12 +162,20 @@ e ainda não foi feito.** Entra como baseline obrigatório.
 
 ## 5. Ressalvas, explicitamente
 
-**5.1 Isto é "nosso aditivo contra a FCNN deles".** Os números do MULTI-evolve vêm da
-Tabela S4; não reexecutamos a rede. Diferenças podem, em princípio, vir de detalhes
-de implementação em vez da classe de modelo. O controle correto é reexecutar a FCNN
-no nosso pipeline — o `multievolve_hyperparameter_sweep.py` do DeWitt lab fornece o
-caminho. **Até isso ser feito, as conclusões das §2 e §3 são fortes mas não
-definitivas.** É a pendência mais importante do capítulo.
+**5.1 Isto é "nosso aditivo contra a FCNN deles".** ✅ **RESOLVIDO em 22/11/2026** —
+ver `RESULTADOS_FCNN.md`. A FCNN foi reexecutada no nosso pipeline, nos mesmos folds,
+e a ressalva se mostrou justificada: a comparação contra a Tabela S4 **exagerava** a
+vantagem da FCNN na interpolação por um fator de três (−0,061 aqui contra −0,019 e
+−0,025 pareado), e a significância do delta de extrapolação era artefato de comparar
+implementações diferentes (p = 0,003 aqui contra p = 0,08–0,34 pareado).
+
+A direção das conclusões se mantém e fica mais forte: na extrapolação não há vantagem
+da FCNN em nenhuma featurização nem carga de treino, e a assimetria Pearson/Spearman
+da §3 se confirma com significância (p = 0,002 na interpolação, 11/12 conjuntos).
+
+Os números das §§1–4 **deste** documento devem ser lidos como a comparação contra a
+literatura publicada, não como o resultado do capítulo. O resultado é o de
+`RESULTADOS_FCNN.md`.
 
 **5.2 A interpolação tem apenas 12 células.** Carga de teste 3 com treino 3, uma por
 conjunto. O resultado é unânime (12/12) e o Wilcoxon é significativo, mas a amostra
