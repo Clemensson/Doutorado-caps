@@ -25,7 +25,13 @@ import pandas as pd
 import torch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from data import TRAIN_LOADS, assemble_eval, load_dataset, make_partition  # noqa: E402
+from data import (  # noqa: E402
+    FOLD_SEED,
+    TRAIN_LOADS,
+    assemble_eval,
+    load_dataset,
+    make_partition,
+)
 from models import corr, fit_additive, fit_fcnn, predict_fcnn  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -49,7 +55,8 @@ def array_jobs() -> list[tuple[str, str]]:
 
 
 def run(dataset: str, featurization: str, data_dir: Path, out: Path,
-        device_str: str, val_frac: float, epochs: int, seed: int) -> None:
+        device_str: str, val_frac: float, epochs: int, seed: int,
+        fold_seed: int = FOLD_SEED) -> None:
     ds_cfg, hp = load_config()
     row = ds_cfg[ds_cfg["dataset"] == dataset]
     if row.empty:
@@ -64,7 +71,7 @@ def run(dataset: str, featurization: str, data_dir: Path, out: Path,
 
     need_seq = featurization == "seq"
     d = load_dataset(csv, dataset, need_seq=need_seq)
-    folds, cv_pool_idx, extra_test_idx = make_partition(d)
+    folds, cv_pool_idx, extra_test_idx = make_partition(d, seed=fold_seed)
     print(f"  n={d.n}  p_mut={d.X_mut.shape[1]}  L={d.seq_len}  "
           f"entrada={d.input_dim(featurization)}  "
           f"pool_cv={len(cv_pool_idx)}  teste_extra={len(extra_test_idx)}",
@@ -143,6 +150,9 @@ def run(dataset: str, featurization: str, data_dir: Path, out: Path,
                     "carga_treino": load,
                     "carga_teste": label,
                     "n_treino": n_tr,
+                    "val_frac": val_frac,
+                    "seed": seed,
+                    "fold_seed": fold_seed,
                     "n_teste": int(mask.sum()),
                     "entrada": d.input_dim(featurization) if mname == "fcnn"
                                else d.X_mut.shape[1],
@@ -177,6 +187,12 @@ def main() -> None:
     ap.add_argument("--val-frac", type=float, default=0.10)
     ap.add_argument("--epochs", type=int, default=300)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--fold-seed", type=int, default=FOLD_SEED,
+                    help="semente do particionamento em folds; variar isto e o "
+                         "experimento de variabilidade de folds")
+    ap.add_argument("--job-index", type=int,
+                    help="indice em config/jobs_sensibilidade.tsv; resolve "
+                         "conjunto, featurizacao, val_frac e fold_seed")
     ap.add_argument("--threads", type=int, default=0,
                     help="0 = usa SLURM_CPUS_PER_TASK ou o padrao do torch")
     args = ap.parse_args()
@@ -194,7 +210,19 @@ def main() -> None:
     if device_str == "auto":
         device_str = "cuda" if torch.cuda.is_available() else "cpu"
 
-    if args.array_index is not None:
+    val_frac, fold_seed, seed = args.val_frac, args.fold_seed, args.seed
+
+    if args.job_index is not None:
+        man = pd.read_csv(ROOT / "config" / "jobs_sensibilidade.tsv", sep="	")
+        if not 0 <= args.job_index < len(man):
+            sys.exit(f"indice fora da faixa 0..{len(man) - 1}")
+        r = man.iloc[args.job_index]
+        dataset, featurization = r["dataset"], r["featurizacao"]
+        val_frac, fold_seed = float(r["val_frac"]), int(r["fold_seed"])
+        tag = f"{r['experimento']}_vf{val_frac}_fs{fold_seed}"
+        out = (Path(args.out_dir)
+               / f"{dataset.replace(' ', '_')}_{featurization}_{tag}.tsv")
+    elif args.array_index is not None:
         jobs = array_jobs()
         if not 0 <= args.array_index < len(jobs):
             sys.exit(f"indice fora da faixa 0..{len(jobs) - 1}")
@@ -210,12 +238,12 @@ def main() -> None:
 
     print(json.dumps({
         "dataset": dataset, "featurizacao": featurization, "device": device_str,
-        "threads": threads or "padrao", "val_frac": args.val_frac,
-        "epochs": args.epochs, "seed": args.seed,
+        "threads": threads or "padrao", "val_frac": val_frac,
+        "epochs": args.epochs, "seed": seed, "fold_seed": fold_seed,
     }, ensure_ascii=False), flush=True)
 
     run(dataset, featurization, Path(args.data_dir), out,
-        device_str, args.val_frac, args.epochs, args.seed)
+        device_str, val_frac, args.epochs, seed, fold_seed)
 
 
 if __name__ == "__main__":

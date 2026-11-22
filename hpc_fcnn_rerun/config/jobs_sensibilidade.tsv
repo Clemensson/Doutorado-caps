@@ -1,0 +1,145 @@
+idx	experimento	dataset	featurizacao	val_frac	fold_seed
+0	val_frac	AAV2 VP1	seq	0.05	42
+1	val_frac	AAV2 VP1	mut	0.05	42
+2	val_frac	GB1	seq	0.05	42
+3	val_frac	GB1	mut	0.05	42
+4	val_frac	TrpB	seq	0.05	42
+5	val_frac	TrpB	mut	0.05	42
+6	val_frac	ppluGFP2	seq	0.05	42
+7	val_frac	ppluGFP2	mut	0.05	42
+8	val_frac	avGFP	seq	0.05	42
+9	val_frac	avGFP	mut	0.05	42
+10	val_frac	amacGFP	seq	0.05	42
+11	val_frac	amacGFP	mut	0.05	42
+12	val_frac	cgreGFP	seq	0.05	42
+13	val_frac	cgreGFP	mut	0.05	42
+14	val_frac	IGP dehydratase	seq	0.05	42
+15	val_frac	IGP dehydratase	mut	0.05	42
+16	val_frac	scFv	seq	0.05	42
+17	val_frac	scFv	mut	0.05	42
+18	val_frac	Phototropin	seq	0.05	42
+19	val_frac	Phototropin	mut	0.05	42
+20	val_frac	ParD3	seq	0.05	42
+21	val_frac	ParD3	mut	0.05	42
+22	val_frac	NucB	seq	0.05	42
+23	val_frac	NucB	mut	0.05	42
+24	val_frac	AAV2 VP1	seq	0.2	42
+25	val_frac	AAV2 VP1	mut	0.2	42
+26	val_frac	GB1	seq	0.2	42
+27	val_frac	GB1	mut	0.2	42
+28	val_frac	TrpB	seq	0.2	42
+29	val_frac	TrpB	mut	0.2	42
+30	val_frac	ppluGFP2	seq	0.2	42
+31	val_frac	ppluGFP2	mut	0.2	42
+32	val_frac	avGFP	seq	0.2	42
+33	val_frac	avGFP	mut	0.2	42
+34	val_frac	amacGFP	seq	0.2	42
+35	val_frac	amacGFP	mut	0.2	42
+36	val_frac	cgreGFP	seq	0.2	42
+37	val_frac	cgreGFP	mut	0.2	42
+38	val_frac	IGP dehydratase	seq	0.2	42
+39	val_frac	IGP dehydratase	mut	0.2	42
+40	val_frac	scFv	seq	0.2	42
+41	val_frac	scFv	mut	0.2	42
+42	val_frac	Phototropin	seq	0.2	42
+43	val_frac	Phototropin	mut	0.2	42
+44	val_frac	ParD3	seq	0.2	42
+45	val_frac	ParD3	mut	0.2	42
+46	val_frac	NucB	seq	0.2	42
+47	val_frac	NucB	mut	0.2	42
+48	fold_seed	AAV2 VP1	seq	0.1	1
+49	fold_seed	AAV2 VP1	mut	0.1	1
+50	fold_seed	GB1	seq	0.1	1
+51	fold_seed	GB1	mut	0.1	1
+52	fold_seed	TrpB	seq	0.1	1
+53	fold_seed	TrpB	mut	0.1	1
+54	fold_seed	ppluGFP2	seq	0.1	1
+55	fold_seed	ppluGFP2	mut	0.1	1
+56	fold_seed	avGFP	seq	0.1	1
+57	fold_seed	avGFP	mut	0.1	1
+58	fold_seed	amacGFP	seq	0.1	1
+59	fold_seed	amacGFP	mut	0.1	1
+60	fold_seed	cgreGFP	seq	0.1	1
+61	fold_seed	cgreGFP	mut	0.1	1
+62	fold_seed	IGP dehydratase	seq	0.1	1
+63	fold_seed	IGP dehydratase	mut	0.1	1
+64	fold_seed	scFv	seq	0.1	1
+65	fold_seed	scFv	mut	0.1	1
+66	fold_seed	Phototropin	seq	0.1	1
+67	fold_seed	Phototropin	mut	0.1	1
+68	fold_seed	ParD3	seq	0.1	1
+69	fold_seed	ParD3	mut	0.1	1
+70	fold_seed	NucB	seq	0.1	1
+71	fold_seed	NucB	mut	0.1	1
+72	fold_seed	AAV2 VP1	seq	0.1	2
+73	fold_seed	AAV2 VP1	mut	0.1	2
+74	fold_seed	GB1	seq	0.1	2
+75	fold_seed	GB1	mut	0.1	2
+76	fold_seed	TrpB	seq	0.1	2
+77	fold_seed	TrpB	mut	0.1	2
+78	fold_seed	ppluGFP2	seq	0.1	2
+79	fold_seed	ppluGFP2	mut	0.1	2
+80	fold_seed	avGFP	seq	0.1	2
+81	fold_seed	avGFP	mut	0.1	2
+82	fold_seed	amacGFP	seq	0.1	2
+83	fold_seed	amacGFP	mut	0.1	2
+84	fold_seed	cgreGFP	seq	0.1	2
+85	fold_seed	cgreGFP	mut	0.1	2
+86	fold_seed	IGP dehydratase	seq	0.1	2
+87	fold_seed	IGP dehydratase	mut	0.1	2
+88	fold_seed	scFv	seq	0.1	2
+89	fold_seed	scFv	mut	0.1	2
+90	fold_seed	Phototropin	seq	0.1	2
+91	fold_seed	Phototropin	mut	0.1	2
+92	fold_seed	ParD3	seq	0.1	2
+93	fold_seed	ParD3	mut	0.1	2
+94	fold_seed	NucB	seq	0.1	2
+95	fold_seed	NucB	mut	0.1	2
+96	fold_seed	AAV2 VP1	seq	0.1	3
+97	fold_seed	AAV2 VP1	mut	0.1	3
+98	fold_seed	GB1	seq	0.1	3
+99	fold_seed	GB1	mut	0.1	3
+100	fold_seed	TrpB	seq	0.1	3
+101	fold_seed	TrpB	mut	0.1	3
+102	fold_seed	ppluGFP2	seq	0.1	3
+103	fold_seed	ppluGFP2	mut	0.1	3
+104	fold_seed	avGFP	seq	0.1	3
+105	fold_seed	avGFP	mut	0.1	3
+106	fold_seed	amacGFP	seq	0.1	3
+107	fold_seed	amacGFP	mut	0.1	3
+108	fold_seed	cgreGFP	seq	0.1	3
+109	fold_seed	cgreGFP	mut	0.1	3
+110	fold_seed	IGP dehydratase	seq	0.1	3
+111	fold_seed	IGP dehydratase	mut	0.1	3
+112	fold_seed	scFv	seq	0.1	3
+113	fold_seed	scFv	mut	0.1	3
+114	fold_seed	Phototropin	seq	0.1	3
+115	fold_seed	Phototropin	mut	0.1	3
+116	fold_seed	ParD3	seq	0.1	3
+117	fold_seed	ParD3	mut	0.1	3
+118	fold_seed	NucB	seq	0.1	3
+119	fold_seed	NucB	mut	0.1	3
+120	fold_seed	AAV2 VP1	seq	0.1	4
+121	fold_seed	AAV2 VP1	mut	0.1	4
+122	fold_seed	GB1	seq	0.1	4
+123	fold_seed	GB1	mut	0.1	4
+124	fold_seed	TrpB	seq	0.1	4
+125	fold_seed	TrpB	mut	0.1	4
+126	fold_seed	ppluGFP2	seq	0.1	4
+127	fold_seed	ppluGFP2	mut	0.1	4
+128	fold_seed	avGFP	seq	0.1	4
+129	fold_seed	avGFP	mut	0.1	4
+130	fold_seed	amacGFP	seq	0.1	4
+131	fold_seed	amacGFP	mut	0.1	4
+132	fold_seed	cgreGFP	seq	0.1	4
+133	fold_seed	cgreGFP	mut	0.1	4
+134	fold_seed	IGP dehydratase	seq	0.1	4
+135	fold_seed	IGP dehydratase	mut	0.1	4
+136	fold_seed	scFv	seq	0.1	4
+137	fold_seed	scFv	mut	0.1	4
+138	fold_seed	Phototropin	seq	0.1	4
+139	fold_seed	Phototropin	mut	0.1	4
+140	fold_seed	ParD3	seq	0.1	4
+141	fold_seed	ParD3	mut	0.1	4
+142	fold_seed	NucB	seq	0.1	4
+143	fold_seed	NucB	mut	0.1	4

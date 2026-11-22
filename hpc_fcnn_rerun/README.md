@@ -1,172 +1,175 @@
-# Reexecução da FCNN do MULTI-evolve — pacote para HPC
+# Pacote HPC — Artigo 1
 
-Pacote autocontido. Resolve a ressalva 5.1 de `RESULTADOS_ALINHADO.md`: até agora
-comparamos **nosso** ridge aditivo contra a **FCNN publicada**, o que deixa aberta a
-possibilidade de as diferenças vierem de detalhes de implementação em vez da classe
-de modelo. Aqui os dois modelos rodam no **mesmo processo, nos mesmos folds**, o que
-torna a comparação pareada de verdade.
+Pacote autocontido com os **quatro experimentos** do Capítulo 1. Nada importa do
+projeto pai; o diretório pode ser copiado isolado.
 
-Nada aqui importa do projeto pai — o diretório pode ser copiado isolado.
+| # | Experimento | Tarefas | Precisa torch? | Estado |
+|---|---|---|---|---|
+| 1 | Reexecução da FCNN | 24 | **sim** | ✅ concluído 22/11 |
+| 2 | Baseline de epistasia global | 12 | não | pronto para submeter |
+| 3 | Nulo Aditivo Calibrado | 5 | não | pronto para submeter |
+| 4 | Sensibilidades (`val_frac`, `fold_seed`) | 144 | **sim** | pronto para submeter |
 
----
-
-## 1. O que roda
-
-**24 tarefas** = 12 conjuntos × 2 featurizações. Cada tarefa ajusta, para as cargas
-de treino 1, 2 e 3, em 5 folds: a **FCNN** e o **ridge aditivo**, nos mesmos dados.
-
-As duas featurizações:
-
-| | Entrada | O que é |
-|---|---|---|
-| `seq` | 22 × L | One-hot da sequência inteira, 22 categorias por posição (20 aminoácidos + `*` + `X`). **É o que a FCNN publicada recebeu** (`OneHotFeaturizer` do MULTI-evolve). |
-| `mut` | p | Indicador binário de mutação. É o que o baseline aditivo usa, e o que o notebook do DeWitt lab usou. |
-
-As duas geram a **mesma classe de funções** — o one-hot de sequência é uma
-transformação afim do indicador de mutação, já que nenhuma variante tem duas
-substituições na mesma posição, e a primeira camada linear absorve a transformação.
-O que difere é a geometria de otimização, a dimensão de entrada e como o *dropout*
-age. O contraste entre as duas é portanto um resultado em si.
-
-Hiperparâmetros: os **publicados**, extraídos da Tabela S3 (linhas `One-hot`) para
-`config/hyperparams.tsv`. Não há varredura — refazê-la seria 12.960 ajustes em vez de
-180, ou seja dias, e desnecessário já que o artigo publica os valores escolhidos.
+Ordem recomendada: **4 primeiro** (fecha as ressalvas que bloqueiam a submissão),
+depois **3** (o resultado novo), depois **2** se quiser reproduzir o baseline no
+cluster — ele já rodou localmente.
 
 ---
 
-## 2. Custo
-
-Teto de 300 épocas, sem *early stopping* (o *early stopping* real deve cortar isso
-para algo entre 1/3 e 1/5):
-
-| | TFLOP |
-|---|---|
-| Featurização `seq` (12 conjuntos) | **1.281** |
-| Featurização `mut` (12 conjuntos) | ~170 |
-| **Total** | **~1.450** |
-
-Por tarefa, do mais caro ao mais barato (`seq`; ver `config/datasets.tsv`):
-
-| Conjunto | L | TFLOP |
-|---|---|---|
-| AAV2 VP1 | 735 | 321,6 |
-| GB1 | 448 | 201,9 |
-| TrpB | 389 | 179,3 |
-| ppluGFP2 | 222 | 140,3 |
-| avGFP | 238 | 132,3 |
-| amacGFP | 238 | 127,5 |
-| cgreGFP | 235 | 99,1 |
-| IGP dehydratase | 220 | 29,1 |
-| scFv | 246 | 27,7 |
-| Phototropin | 118 | 13,8 |
-| ParD3 | 93 | 5,5 |
-| NucB | 142 | 2,9 |
-
-**Como array job, o tempo de parede é a tarefa mais lenta, não a soma.**
-
-- **CPU**: a pior tarefa (AAV2 VP1, 322 TFLOP) leva entre ~1 h e ~5 h, conforme a
-  vazão real e o quanto o *early stopping* corta. O `--time=08:00:00` do script é
-  folga deliberada.
-- **GPU**: minutos. Se o cluster tiver GPU, **descomente `--gres=gpu:1`** — o código
-  detecta e usa automaticamente (`--device auto`).
-
-A incerteza na faixa de CPU é real: o gargalo são os *batch sizes* pequenos
-(16 a 512 conforme o conjunto), que deixam o PyTorch limitado por overhead, não por
-FLOPs. Rode o teste de fumaça primeiro para medir.
-
----
-
-## 3. Como rodar
+## Preparação, uma vez
 
 ```bash
-# 1. ambiente
-bash scripts/setup_env.sh              # ou CPU_ONLY=1 bash scripts/setup_env.sh
+bash scripts/setup_env.sh          # ou CPU_ONLY=1 para experimentos 2 e 3
+bash scripts/fetch_data.sh         # 375 MB; ou rsync da máquina local
+python -I scripts/selftest_data.py --data-dir data --dataset NucB   # 16 testes
+```
 
-# 2. dados (375 MB) — uma das duas vias
-bash scripts/fetch_data.sh             # se o nó de login tiver internet
-# ou, da máquina local:
-#   rsync -av --progress data/external/zenodo-17620759/ USUARIO@HOST:CAMINHO/data/
+**Edite cada `.sbatch` antes de submeter:** `--account`, `--partition`, a forma de
+ativar o ambiente, e `--gres=gpu:1` nos experimentos 1 e 4 se houver GPU.
 
-# 3. validação sem PyTorch (segundos)
-python -I scripts/selftest_data.py --data-dir data --dataset NucB
+---
 
-# 4. teste de fumaça — RODE ISTO ANTES DO ARRAY
-sbatch slurm/smoke.sbatch              # NucB, 20 épocas, poucos minutos
+## Experimento 1 — Reexecução da FCNN ✅
 
-# 5. array completo
-sbatch slurm/array.sbatch
-
-# 6. juntar e resumir
+```bash
+sbatch slurm/smoke.sbatch     # obrigatório antes do array
+sbatch slurm/array.sbatch     # 24 tarefas = 12 conjuntos x 2 featurizações
 python src/merge.py --results-dir results --out merged.tsv
 ```
 
-**Edite `slurm/array.sbatch` antes de submeter:** `--account`, `--partition`, a forma
-de ativar o ambiente (módulos / conda / venv) e `--gres=gpu:1` se houver GPU.
-
-As tarefas estão ordenadas por custo decrescente, então os índices 0 e 1 são
-AAV2 VP1. Para rodar só os baratos primeiro: `sbatch --array=14-23 slurm/array.sbatch`.
-Para listar o mapeamento: `python src/run_one.py --list-jobs`.
+Concluído: 95 min de treino somados, pior tarefa 23 min, épocas efetivas 56 na
+mediana. Resultado em `RESULTADOS_FCNN.md` no projeto.
 
 ---
 
-## 4. Saída
+## Experimento 2 — Baseline de epistasia global
 
-Uma TSV por tarefa em `results/`, com uma linha por (modelo × carga de treino ×
-carga de teste), incluindo `all` e cada carga exata ≥ 3:
+Modelo $y \sim g(x^\top\beta)$ com $g$ monotônica não decrescente. Por construção
+**não pode representar interação nenhuma**. Duas variantes: dois estágios (ridge,
+depois isotônica) e ajuste conjunto por minimização alternada.
 
-```
-dataset  modelo  featurizacao  carga_treino  carga_teste  n_treino  n_teste
-entrada  epocas_medianas  segundos  pearson  spearman
+```bash
+sbatch slurm/global.sbatch        # 12 tarefas, uma por conjunto
 ```
 
-`src/merge.py` junta tudo e já reporta: Spearman global por modelo e carga; o delta
-pareado (aditivo − FCNN) com Wilcoxon; a separação interpolação vs extrapolação; e o
-custo efetivo medido. Ele **avisa se faltarem tarefas** do array.
+Saída em `results_global/`. Já rodou localmente (ver
+`RESULTADOS_EPISTASIA_GLOBAL.md`): recupera ~50% da vantagem da FCNN em Pearson na
+interpolação, p = 0,0024.
 
 ---
 
-## 5. O que este pacote reproduz, e o que desvia
+## Experimento 3 — Nulo Aditivo Calibrado
 
-### Reproduz fielmente
+Simula B paisagens **sem epistasia**, casadas ao conjunto real em desenho,
+composição de ordens mutacionais e razão sinal-ruído, e roda o pipeline inteiro em
+cada uma. A distribuição resultante do ganho sobre o aditivo é o alvo de comparação
+correto, em vez de zero.
 
-- Filtro de estringência `'singles'` (`preprocess_dataset` do MULTI-evolve)
-- Normalização min-max de `DMS_score` para [0, 1]
-- Partição: pool de CV = cargas 1–3, teste extra = cargas ≥ 4, 5 folds, semente 42
-- Treino = variantes de carga ≤ L dos outros 4 folds; teste extra recebe a média das
-  5 predições
-- Arquitetura: `Linear(in,100) → LeakyReLU(0,2) → Dropout(0,2)`, repetido por camada
-  oculta, saída `Linear(100,1)` — transcrita da classe `Fcn`
-- `MSELoss`, Adam, 300 épocas, *early stopping* com paciência 15 e delta mínimo 10⁻⁵
-- One-hot de sequência com 22 categorias
-- Hiperparâmetros publicados na Tabela S3
+```bash
+sbatch slurm/nac.sbatch                        # B=50, carga de treino 3
+NAC_REPLICAS=100 sbatch slurm/nac.sbatch       # mais resolução no p calibrado
+NAC_TRAIN_LOAD=2 sbatch slurm/nac.sbatch       # outra carga
+```
 
-### Desvia, declaradamente
+Modelos calibrados: `additive` (controle — seu ganho sobre si mesmo deve ser
+exatamente zero), `pairwise` (ridge com todas as interações pareadas — o teste
+direto de epistasia **específica**) e `global_iso` (o baseline de escala).
 
-**`val_split`.** O *early stopping* exige conjunto de validação, mas o `val_split` do
-código original é `None` por padrão e **o valor usado no benchmarking da Fig. 2E não
-está documentado em nenhuma das três fontes** (código, suplementar, notebook de
-reanálise). Usamos 10% do subconjunto de treino, amostrado de forma estratificada por
-carga mutacional (`--val-frac`, configurável). **A sensibilidade a essa escolha deve
-ser reportada no artigo** — rodar com `--val-frac 0.05` e `0.20` é barato nos
-conjuntos pequenos.
+### Só 5 conjuntos, e isso é um resultado
 
-**Ordenação de empates.** `sort_values(by='num_mutations')` não garante ordem de
-empates entre implementações; usamos `kind='stable'` para ser determinístico. A
-composição exata dos folds pode diferir da do notebook de referência. É variabilidade
-amostral, não viés, e é quantificável variando a semente.
+O modelo pareado tem $p + p(p-1)/2$ features:
 
-**Ordem das categorias de aminoácido.** Irrelevante para um MLP (permutação das
-features de entrada), portanto não reproduzida exatamente.
+| Conjunto | p | p pareado | Elegível |
+|---|---|---|---|
+| ParD3 | 37 | 703 | ✅ |
+| GB1 | 76 | 2.926 | ✅ |
+| TrpB | 77 | 3.003 | ✅ |
+| IGP dehydratase | 168 | 14.196 | ✅ |
+| NucB | 221 | 24.531 | ✅ |
+| scFv | 437 | 95.703 | ✖ |
+| AAV2 VP1 | 532 | 141.778 | ✖ |
+| avGFP … amacGFP | 1.084–1.201 | 588k–722k | ✖ |
+| Phototropin | 2.122 | **2.252.503** | ✖ |
+
+Os sete excluídos não são limitação de máquina: **não há dados que identifiquem
+tantos parâmetros de interação.** Um modelo de epistasia pareada só é ajustável nas
+paisagens de poucas posições — que são justamente as mesmas em que a densidade de
+duplos medidos por par de posições é alta. Vale como achado do capítulo.
+
+Custo medido: ~63 s por réplica em GB1 numa máquina de 6 núcleos. `NucB`, com
+24.531 features pareadas, deve ser muito mais caro — daí `--time=12:00:00` e 48G.
 
 ---
 
-## 6. Estado de validação
+## Experimento 4 — As sensibilidades pendentes
+
+Duas ressalvas declaradas em `RESULTADOS_FCNN.md` que **nunca foram medidas** e
+precisam estar fechadas antes de submeter.
+
+```bash
+sbatch --array=0-47   slurm/sensibilidade.sbatch   # val_frac
+sbatch --array=48-143 slurm/sensibilidade.sbatch   # fold_seed
+sbatch slurm/sensibilidade.sbatch                  # ambas, 144 tarefas
+```
+
+**`val_frac`** (48 tarefas). O *early stopping* exige validação, mas o `val_split`
+usado por Tran et al. não está documentado em nenhuma das três fontes. Adotamos
+10%; aqui medimos 5% e 20%.
+
+**`fold_seed`** (96 tarefas). Toda a análise usou uma única semente de
+particionamento (42). Quatro sementes adicionais dão a variabilidade amostral dos
+folds — exatamente a grandeza contra a qual os efeitos de 0,02 a 0,13 de Spearman
+precisam ser julgados.
+
+O grid (`config/jobs_sensibilidade.tsv`) varia **um fator por vez** a partir do
+baseline já rodado. Produto cartesiano seria 360 tarefas e não responderia melhor
+nenhuma das duas perguntas.
+
+Nota: `--seed` do `run_one.py` semeia a inicialização da rede e a divisão de
+validação; `--fold-seed` semeia o **particionamento**. São fatores distintos, e é o
+segundo que mede variabilidade de folds.
+
+---
+
+## O que o pacote reproduz, e o que desvia
+
+Fielmente: filtro de estringência `'singles'`; normalização min-max de `DMS_score`
+para [0,1]; partição pool-de-CV (cargas 1–3) mais teste extra (≥4) em 5 folds com
+semente 42; treino nas variantes de carga ≤ L dos outros 4 folds; média das 5
+predições no teste extra; arquitetura `Linear→LeakyReLU(0,2)→Dropout(0,2)` por
+camada com saída `Linear(100,1)`; `MSELoss`, Adam, 300 épocas, paciência 15 e delta
+mínimo 10⁻⁵; one-hot de sequência com 22 categorias; hiperparâmetros da Tabela S3.
+
+Desvios declarados:
+
+- **`val_split`** não documentado na fonte — adotamos 10%, e o experimento 4 mede a
+  sensibilidade.
+- **Ordenação de empates** em `sort_values` usa `kind='stable'` para ser
+  determinística; pode diferir do notebook de referência. Variabilidade amostral,
+  não viés, e o experimento 4 a quantifica.
+- **Ruído do nulo em ordens ausentes do treino** (ordem 4): usamos o sigma da maior
+  ordem disponível no treino. Aproximação declarada em `src/calibrated_null.py`.
+- **Ordem das categorias de aminoácido** é irrelevante para um MLP (permutação das
+  features de entrada) e não foi reproduzida exatamente.
+
+### Uma ressalva de reprodutibilidade que vale repetir
+
+Na carga de treino 1, **n_treino/p = 0,80 por construção** em todo conjunto: o
+filtro de estringência faz p = número de singles, e o treino são 4/5 deles. O
+sistema é subdeterminado, o α colapsa no piso da grade em 8 dos 12 conjuntos, e os
+valores **não são reproduzíveis entre plataformas** — observamos divergência de até
+0,14 entre o HPC e a máquina local, enquanto as cargas 2 e 3 batem a 5 × 10⁻¹⁵. Não
+reporte a carga 1 com precisão decimal.
+
+---
+
+## Estado de validação
 
 | Componente | Estado |
 |---|---|
 | Sintaxe de todos os módulos | ✅ compila |
-| Camada de dados (filtro, normalização, folds, ambas as featurizações, equivalência afim, determinismo) | ✅ 16/16 testes passam em NucB |
-| Caminho PyTorch (FCNN, treino, *early stopping*) | ⚠️ **não executado** — PyTorch não está instalado na máquina onde o pacote foi montado |
-
-**Por isso o teste de fumaça do passo 4 não é opcional.** Ele é a primeira execução
-real do caminho de rede neural.
+| Camada de dados | ✅ 16/16 testes em NucB |
+| Mapeamento índice→conjunto dos arrays | ✅ testado, inclusive nomes com espaço e índice fora da faixa |
+| Resolução do manifesto de sensibilidade | ✅ testada nos índices 0, 47, 48, 143 |
+| Caminho PyTorch (experimentos 1 e 4) | ✅ validado pela execução do experimento 1 |
+| Experimentos 2 e 3 | ✅ executados localmente antes de portar |
