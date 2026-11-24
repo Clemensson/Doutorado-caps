@@ -7,7 +7,7 @@ projeto pai; o diretório pode ser copiado isolado.
 |---|---|---|---|---|
 | 1 | Reexecução da FCNN | 24 | **sim** | ✅ concluído 22/11 |
 | 2 | Baseline de epistasia global | 12 | não | pronto para submeter |
-| 3 | Nulo Aditivo Calibrado | 5 | não | pronto para submeter |
+| 3 | Nulo Aditivo Calibrado — **o mapa de regimes** | **15** | não | pronto para submeter |
 | 4 | Sensibilidades (`val_frac`, `fold_seed`) | 144 | **sim** | pronto para submeter |
 
 Ordem recomendada: **4 primeiro** (fecha as ressalvas que bloqueiam a submissão),
@@ -65,11 +65,31 @@ composição de ordens mutacionais e razão sinal-ruído, e roda o pipeline inte
 cada uma. A distribuição resultante do ganho sobre o aditivo é o alvo de comparação
 correto, em vez de zero.
 
+É a **entrega (2) revisada** do capítulo (ver `ESPECIFICACAO.md` §7.3): o mapa de
+regimes sobre os conjuntos em que ele é verificável. **15 tarefas = 5 conjuntos × 3
+cargas de treino**, com B = 100 réplicas.
+
 ```bash
-sbatch slurm/nac.sbatch                        # B=50, carga de treino 3
-NAC_REPLICAS=100 sbatch slurm/nac.sbatch       # mais resolução no p calibrado
-NAC_TRAIN_LOAD=2 sbatch slurm/nac.sbatch       # outra carga
+sbatch slurm/nac.sbatch                      # as 15 células, B=100
+sbatch --array=0-4 slurm/nac.sbatch          # só a carga 3 (as mais informativas)
+NAC_REPLICAS=30 sbatch slurm/nac.sbatch      # mais rápido, p mínimo 0,032
 ```
+
+Mapeamento do índice — cargas em ordem decrescente, para as células mais caras e
+informativas entrarem na fila primeiro:
+
+| Índices | Carga de treino |
+|---|---|
+| 0–4 | 3 |
+| 5–9 | 2 |
+| 10–14 | 1 |
+
+e dentro de cada bloco a ordem de `config/nac_datasets.tsv`: ParD3, GB1, TrpB,
+IGP dehydratase, NucB.
+
+B = 100 porque o p calibrado mínimo é 1/(B+1): com 30 o piso é 0,032, com 100 vai a
+0,0099. GB1 e TrpB na carga 3 já rodaram localmente com B = 30 — refazer com 100 dá
+resolução maior e serve de verificação cruzada entre plataformas.
 
 Modelos calibrados: `additive` (controle — seu ganho sobre si mesmo deve ser
 exatamente zero), `pairwise` (ridge com todas as interações pareadas — o teste

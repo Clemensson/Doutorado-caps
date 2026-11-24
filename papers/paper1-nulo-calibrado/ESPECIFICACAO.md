@@ -194,7 +194,73 @@ exatamente a reanálise da Fig. 2E.
 
 ## 6. Pendências de decisão
 
-- [ ] Escala $g(\cdot)$ por conjunto — exige inspeção de cada distribuição
-- [ ] Tratamento de coeficientes não identificados (§3.4)
-- [ ] $B$ (número de réplicas) — compromisso entre custo e resolução do $p$ calibrado
-- [ ] Definir se o *headroom* é estimado em todos os conjuntos ou só nos ricos em dados
+- [x] Escala $g(\cdot)$ por conjunto — **resolvido**: min-max [0,1], ver `PROTOCOLO_ALINHADO.md`
+- [x] Tratamento de coeficientes não identificados (§3.4) — **resolvido por construção** pelo filtro de estringência
+- [x] $B$ (número de réplicas) — **B = 30 local, B = 100 no HPC**; ver `RESULTADOS_NAC.md` §1
+- [x] Definir se o *headroom* é estimado em todos os conjuntos ou só nos ricos em dados — **resolvido pela §7 abaixo, e não como se esperava**
+
+---
+
+## 7. Revisão de 24/11/2026
+
+Tudo acima é o texto original de 20/11 e **fica como registro**. Esta seção
+documenta o que mudou e por quê. O plano não foi reescrito para casar com os
+resultados; a divergência está registrada.
+
+### 7.1 A entrega (2) não é alcançável como especificada
+
+A §4 previa um mapa de regimes sobre **os 12 conjuntos**, com o *headroom*
+epistático $h = R^2_{CV}(\text{pareado}) - R^2_{CV}(\text{aditivo})$ como eixo.
+
+Um modelo pareado tem $p + p(p-1)/2$ parâmetros. Medido:
+
+| Conjuntos | $p$ | $p$ pareado | Estimável |
+|---|---|---|---|
+| ParD3, GB1, TrpB, IGP dehydratase, NucB | 37–221 | 703 – 24.531 | sim |
+| scFv, AAV2 VP1 | 437–532 | 95.703 – 141.778 | não |
+| 4 GFPs, Phototropin | 1.084–2.122 | 588.070 – **2.252.503** | não |
+
+Não é limite de máquina: **não existem dados que identifiquem 2,25 milhões de
+parâmetros de interação** a partir de alguns milhares de variantes. A última
+pendência da §6 — "em todos os conjuntos ou só nos ricos em dados" — tinha, portanto,
+uma resposta imposta pelos dados, e não uma escolha nossa.
+
+Isso é um achado e entra no artigo: **epistasia pareada só é estimável nas paisagens
+de poucas posições**, que são as mesmas em que a densidade de duplos medidos por par
+de posições é alta.
+
+### 7.2 A pergunta do capítulo foi reformulada
+
+A pergunta original — "qual parte do ganho reportado sobrevive à correção pelo nulo" —
+foi respondida, mas o trabalho revelou uma pergunta mais específica e mais
+informativa, que é a que os dados sustentam:
+
+> **De que consiste a vantagem de um modelo flexível sobre o nulo aditivo? Quanto
+> dela é epistasia global — um efeito de escala, sem interação entre mutações — e
+> quanto é epistasia específica?**
+
+A reformulação não foi planejada. Ela veio da assimetria Pearson/Spearman observada
+na reexecução da FCNN (`RESULTADOS_FCNN.md` §4), e o baseline de epistasia global que
+ela motivou **não constava desta especificação**. Registrar isso importa: foi uma
+adição guiada pelos dados, não um item do plano.
+
+### 7.3 Entregas revisadas
+
+1. **O software do NAC**, agnóstico a pipeline — inalterado, e entregue.
+2. **A decomposição escala *vs* interação**, em dois níveis de cobertura:
+   - nos **12 conjuntos**, via FCNN e modelo de epistasia global (feito);
+   - nos **5 conjuntos identificáveis**, o incremento de interação pareada
+     calibrado contra o nulo aditivo.
+3. **O limite de identificabilidade** da §7.1 como fronteira declarada do método,
+   não como lacuna.
+
+### 7.4 O que falta para fechar
+
+| Item | Estado |
+|---|---|
+| NAC nos 5 conjuntos × 3 cargas (15 células) | 2 feitas (GB1, TrpB, carga 3) |
+| Sensibilidade a `val_split` (0,05 / 0,20) | não medida |
+| Variabilidade de folds (4 sementes) | não medida |
+| Sensibilidade ao $\sigma$ da ordem 4 no nulo | não medida |
+| Replicação em escala log | não medida |
+| Documento de síntese | `SINTESE.md` |
