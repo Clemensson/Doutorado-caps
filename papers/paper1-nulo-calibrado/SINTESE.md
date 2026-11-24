@@ -47,7 +47,7 @@ DeWitt identificaram. *(`RESULTADOS_MARCO0.md`)*
 ### 2. Com comparação pareada, a FCNN não supera o aditivo na extrapolação
 
 Reexecutando a rede no nosso pipeline, nos mesmos folds, em 12 conjuntos × 2
-featurizações (24 tarefas, 95 min de treino no HPC):
+featurizações (24 tarefas, 132 min de treino no HPC):
 
 | Regime | Δ Spearman (aditivo − FCNN) | |
 |---|---|---|

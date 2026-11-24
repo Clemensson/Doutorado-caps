@@ -18,8 +18,8 @@ dados.
 
 | | Valor |
 |---|---|
-| Tempo de treino somado | **95,1 min** |
-| Pior tarefa isolada | **23,0 min** (GB1, one-hot de sequência) |
+| Tempo de treino somado | **132 min** |
+| Pior tarefa isolada | **23,8 min** (GB1, one-hot de sequência) |
 | Épocas efetivas | mediana **56**, faixa 16–219 (teto era 300) |
 
 Eu havia estimado 1–5 h para a pior tarefa. O real foi 23 min — **errei por um fator

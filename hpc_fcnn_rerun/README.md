@@ -37,7 +37,7 @@ sbatch slurm/array.sbatch     # 24 tarefas = 12 conjuntos x 2 featurizações
 python src/merge.py --results-dir results --out merged.tsv
 ```
 
-Concluído: 95 min de treino somados, pior tarefa 23 min, épocas efetivas 56 na
+Concluído: 132 min de treino somados, pior tarefa 23,8 min, épocas efetivas 56 na
 mediana. Resultado em `RESULTADOS_FCNN.md` no projeto.
 
 ---
