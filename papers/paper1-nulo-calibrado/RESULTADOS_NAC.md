@@ -157,12 +157,13 @@ não aditivo e se mostra que a parcela de interação específica, calibrada, é
 distribuição nula, mas B = 100 no HPC daria resolução melhor e custa pouco como
 array (`slurm/nac.sbatch`, `NAC_REPLICAS=100`).
 
-**Ruído em ordens ausentes do treino.** A ordem 4 não tem $\sigma$ estimável do
-treino (que vai até 3); usamos o $\sigma$ da ordem 3. Em GB1 os sigmas decrescem com
-a ordem (0,093 / 0,062 / 0,050), então a ordem 4 recebe o menor ruído disponível. O
-nulo fica mais limpo do que a realidade provavelmente é, e o efeito dessa escolha na
-direção da conclusão **não foi quantificado**. É a ressalva mais relevante deste
-documento.
+**Ruído em ordens ausentes do treino.** ✅ **RESOLVIDO em 24/11/2026** — ver §7.
+
+A ordem 4 não tem $\sigma$ estimável do treino (que vai até 3); usamos o $\sigma$ da
+ordem 3. Em GB1 os sigmas decrescem com a ordem (0,093 / 0,062 / 0,050), então a
+ordem 4 recebia o menor ruído disponível, e o nulo ficava mais limpo do que a
+realidade provavelmente é. Era a ressalva mais relevante deste documento. A §7 mostra
+que a conclusão não depende dela.
 
 **Uma carga de treino, uma semente.** Carga 3 e semente de fold 42. A variabilidade
 de folds é o experimento 4 do pacote HPC e segue pendente.
@@ -183,3 +184,67 @@ geral ou específico das paisagens de 4 posições.
 4. **Replicação em escala log.** Se parte do ganho de `global_iso` desaparecer ao
    ajustar o aditivo na escala em que aditividade é biofisicamente esperada, a
    decomposição escala-vs-interação muda de proporção.
+
+---
+
+## 7. Sensibilidade ao σ das ordens não vistas
+
+Execução de 24/11/2026. `--sigma-unseen maior_sigma`, GB1 e TrpB, carga 3, B = 30.
+Resultados em `results/nac_sigma_maior.tsv`.
+
+A política padrão (`maior_ordem`) atribui à ordem 4 o σ da maior ordem do treino —
+que nos conjuntos medidos é o **menor** da série. A variante conservadora
+(`maior_sigma`) atribui o **maior** σ entre as ordens do treino. Em GB1 isso é
+0,0926 contra 0,0502: **1,8× mais ruído** no nulo.
+
+### O efeito calibrado praticamente não se move
+
+| Conjunto | Modelo | Regime | Efeito (padrão) | Efeito (conservador) | Δ |
+|---|---|---|---|---|---|
+| GB1 | `pairwise` | all | +0,2526 | +0,2476 | −0,0050 |
+| GB1 | `pairwise` | extrapolação | +0,2424 | +0,2393 | −0,0031 |
+| GB1 | `global_iso` | all | +0,2130 | +0,2117 | −0,0013 |
+| GB1 | `global_iso` | extrapolação | +0,2141 | +0,2122 | −0,0019 |
+| TrpB | `pairwise` | all | +0,0618 | +0,0550 | −0,0068 |
+| TrpB | `pairwise` | **extrapolação** | −0,0118 | −0,0141 | −0,0023 |
+| TrpB | `global_iso` | all | +0,2394 | +0,2378 | −0,0016 |
+| TrpB | `global_iso` | extrapolação | +0,2497 | +0,2477 | −0,0020 |
+
+**Deslocamento máximo em 24 células: 0,0068**, sobre efeitos de 0,06 a 0,33 — cerca
+de 2% em termos relativos. Todos os p calibrados permanecem no piso (≤ 0,032), e o
+único que era 1,000 (TrpB `pairwise` extrapolação) continua 1,000.
+
+As três conclusões da §2 e da §4 sobrevivem sem alteração:
+
+| Conclusão | Padrão | Conservador |
+|---|---|---|
+| Incremento da interação em GB1 | +0,040 | **+0,036** |
+| Incremento da interação em TrpB | −0,178 | **−0,183** |
+| TrpB `pairwise` pior que o nulo na extrapolação | sim | **sim** |
+
+O motivo da insensibilidade é estrutural: o nulo rende de −0,004 a −0,017 sob
+qualquer política, enquanto o observado é +0,21 a +0,33. Mudar o ruído desloca a
+mediana do nulo por milésimos; o observado está ordens de magnitude fora dela.
+
+### Uma validação de corretude que caiu de graça
+
+Nas oito células de **interpolação**, Δ = **exatamente 0,0000** — não
+aproximadamente.
+
+Tem de ser assim: a interpolação usa apenas variantes de teste de ordem 3, que
+**têm** σ estimado do treino. A política só pode tocar ordens ausentes do treino, ou
+seja a ordem 4, que é a extrapolação. Um Δ não nulo na interpolação indicaria
+vazamento da política para onde ela não deveria alcançar.
+
+Não era um teste planejado, mas é um e passou.
+
+### O que isto fecha, e o que não
+
+**Fecha** a ressalva da §5 sobre o σ das ordens não vistas, para GB1 e TrpB na
+carga 3.
+
+**Não fecha** a mesma questão nas outras 13 células do mapa de regimes, nem nas
+cargas 1 e 2 — onde a fração de variantes de teste em ordens não vistas é maior,
+porque o treino vai só até a ordem 1 ou 2. É plausível que a sensibilidade cresça
+nessas cargas, e isso **não foi medido**. `NAC_SIGMA=maior_sigma sbatch
+slurm/nac.sbatch` replica a análise nas 15 células.
