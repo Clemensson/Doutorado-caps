@@ -50,9 +50,19 @@
 # do capitulo, nao uma lacuna.
 #
 # CUSTO. Medido localmente: ~55 s por replica em GB1 (p_pareado=2.926,
-# n_treino=28.186) em 6 nucleos; B=30 levou ~28 min. NucB tem p_pareado=24.531 e
-# deve ser muito mais caro — as 12 h de --time e os 48G de memoria existem por
-# causa dele. Cargas 1 e 2 tem treino menor e saem mais rapido.
+# n_treino=28.186) em 6 nucleos; B=30 levou ~28 min. Cargas 1 e 2 tem treino
+# menor e saem mais rapido.
+#
+# NAO e o p_pareado que governa o custo, e sim min(n_treino, p_pareado): o sklearn
+# decompoe X^T X quando n > p e X X^T quando n < p, escolhendo sempre a matriz
+# menor. Por isso:
+#
+#   NucB   p_pareado=24.531 mas n_treino=533   -> gram 533x533, TRIVIAL
+#   IGP    p_pareado=14.196  e  n_treino=5.797 -> gram 5.797x5.797, o mais CARO
+#   GB1    p_pareado=2.926   e  n_treino=28.186 -> covariancia 2.926x2.926
+#
+# Ou seja o conjunto mais pesado da fila e o IGP dehydratase, nao o NucB como
+# parecia pelo numero de features. As 12 h de --time e os 48G cobrem o IGP.
 #
 # B=100 e o padrao aqui (contra 30 na rodada local) porque o p calibrado minimo e
 # 1/(B+1): com 30 o piso era 0,032, com 100 vai a 0,0099.
@@ -71,6 +81,11 @@ export MKL_NUM_THREADS="${SLURM_CPUS_PER_TASK:-16}"
 export PYTHONUNBUFFERED=1
 
 REPLICAS="${NAC_REPLICAS:-100}"
+# Politica de sigma para ordens do teste ausentes do treino (a ordem 4 aqui).
+# 'maior_ordem' e o padrao que produziu os resultados de 22/11; 'maior_sigma' e a
+# variante conservadora da analise de sensibilidade. Ver RESULTADOS_NAC.md secao 5
+# e sigma_para_ordens_nao_vistas em src/calibrated_null.py.
+SIGMA="${NAC_SIGMA:-maior_ordem}"
 N_CONJ=5
 
 IDX="${SLURM_ARRAY_TASK_ID}"
@@ -88,12 +103,13 @@ if [ -z "$DATASET" ]; then
 fi
 SAFE=${DATASET// /_}
 
-echo "tarefa ${IDX} = ${DATASET} carga ${CARGA} B=${REPLICAS}"
+echo "tarefa ${IDX} = ${DATASET} carga ${CARGA} B=${REPLICAS} sigma=${SIGMA}"
 echo "em $(hostname) — $(date -Is)"
 python src/calibrated_null.py \
     --data-dir data \
     --datasets "$DATASET" \
     --train-load "$CARGA" \
     --replicates "$REPLICAS" \
-    --out "results_nac/${SAFE}_L${CARGA}.tsv"
+    --sigma-unseen "$SIGMA" \
+    --out "results_nac/${SAFE}_L${CARGA}_${SIGMA}.tsv"
 echo "concluida — $(date -Is)"

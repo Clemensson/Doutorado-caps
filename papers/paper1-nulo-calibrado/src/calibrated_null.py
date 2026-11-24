@@ -197,11 +197,36 @@ def fit_null_generator(Xa, y, folds, n_muts, load):
     return m, sigma, len(tr)
 
 
-def simulate(m, sigma, Xa, n_muts, rng):
+def sigma_para_ordens_nao_vistas(sigma: dict[int, float], politica: str) -> float:
+    """O sigma atribuido a ordens presentes no teste e ausentes do treino.
+
+    A ordem 4 nao tem sigma estimavel do treino, que vai so ate 3. A escolha nao e
+    neutra e e a ressalva mais relevante de RESULTADOS_NAC.md secao 5, porque nos
+    conjuntos medidos os sigmas DECRESCEM com a ordem (GB1: 0,0926 / 0,0617 /
+    0,0502), de modo que a politica padrao entrega ao nulo o ruido mais limpo
+    disponivel.
+
+      'maior_ordem'  sigma da maior ordem do treino. O padrao, e o que produziu os
+                     resultados de 22/11. Menos ruido no nulo.
+      'maior_sigma'  o maior sigma entre as ordens do treino. O caso oposto e mais
+                     conservador: se a conclusao sobrevive a ele, sobrevive a
+                     qualquer politica intermediaria.
+      'ordem2'       sigma da ordem 2, um meio-termo concreto.
+    """
+    if politica == "maior_ordem":
+        return sigma[max(sigma)]
+    if politica == "maior_sigma":
+        return max(sigma.values())
+    if politica == "ordem2":
+        return sigma.get(2, sigma[max(sigma)])
+    raise ValueError(f"politica desconhecida: {politica!r}")
+
+
+def simulate(m, sigma, Xa, n_muts, rng, politica: str = "maior_ordem"):
     """Passo 3: y simulado sob aditividade pura, com ruido por ordem."""
     mu = m.predict(Xa)
-    kmax = max(sigma)
-    sd = np.array([sigma.get(int(k), sigma[kmax]) for k in n_muts])
+    fallback = sigma_para_ordens_nao_vistas(sigma, politica)
+    sd = np.array([sigma.get(int(k), fallback) for k in n_muts])
     return mu + rng.normal(0.0, sd)
 
 
@@ -212,6 +237,9 @@ def main() -> None:
     ap.add_argument("--train-load", type=int, default=3)
     ap.add_argument("--replicates", type=int, default=50)
     ap.add_argument("--seed", type=int, default=7)
+    ap.add_argument("--sigma-unseen", default="maior_ordem",
+                    choices=["maior_ordem", "maior_sigma", "ordem2"],
+                    help="sigma atribuido a ordens do teste ausentes do treino; ver sigma_para_ordens_nao_vistas")
     ap.add_argument("--out", required=True)
     args = ap.parse_args()
 
@@ -242,14 +270,17 @@ def main() -> None:
         # --- gerador do nulo ---
         gen, sigma, n_tr = fit_null_generator(Xa, d.y, folds, d.n_muts,
                                               args.train_load)
+        fb = sigma_para_ordens_nao_vistas(sigma, args.sigma_unseen)
         print(f"   gerador: n_treino={n_tr}  sigma por ordem="
               f"{ {k: round(v, 4) for k, v in sorted(sigma.items())} }", flush=True)
+        print(f"   politica sigma nao visto = {args.sigma_unseen!r} -> {fb:.4f}",
+              flush=True)
 
         # --- replicas ---
         rng = np.random.default_rng(args.seed)
         null_vals: dict[tuple, list] = {}
         for b in range(args.replicates):
-            y_sim = simulate(gen, sigma, Xa, d.n_muts, rng)
+            y_sim = simulate(gen, sigma, Xa, d.n_muts, rng, args.sigma_unseen)
             res = run_pipeline(Xa, Xp, y_sim, folds, cv_pool_idx, extra_test_idx,
                                d.n_muts, args.train_load)
             for key, val in res.items():
@@ -277,6 +308,7 @@ def main() -> None:
                     rows.append({
                         "dataset": name,
                         "carga_treino": args.train_load,
+                        "sigma_unseen": args.sigma_unseen,
                         "modelo": mname,
                         "regime": regime,
                         "metrica": met,

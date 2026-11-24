@@ -73,7 +73,16 @@ cargas de treino**, com B = 100 réplicas.
 sbatch slurm/nac.sbatch                      # as 15 células, B=100
 sbatch --array=0-4 slurm/nac.sbatch          # só a carga 3 (as mais informativas)
 NAC_REPLICAS=30 sbatch slurm/nac.sbatch      # mais rápido, p mínimo 0,032
+NAC_SIGMA=maior_sigma sbatch slurm/nac.sbatch   # variante de sensibilidade
 ```
+
+**`NAC_SIGMA`** controla o σ atribuído a ordens do teste ausentes do treino — a
+ordem 4, aqui. Não é escolha neutra: nos conjuntos medidos os σ **decrescem** com a
+ordem (GB1: 0,0926 / 0,0617 / 0,0502), então o padrão `maior_ordem` entrega ao nulo o
+ruído mais limpo disponível, o que favorece o efeito observado. `maior_sigma` é o
+caso oposto e mais conservador. É a ressalva mais relevante de `RESULTADOS_NAC.md`
+§5. O nome da política entra no nome do arquivo de saída, então as duas rodadas
+coexistem sem sobrescrever.
 
 Mapeamento do índice — cargas em ordem decrescente, para as células mais caras e
 informativas entrarem na fila primeiro:
