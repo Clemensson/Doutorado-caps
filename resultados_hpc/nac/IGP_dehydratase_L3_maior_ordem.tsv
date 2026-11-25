@@ -1,0 +1,13 @@
+dataset	carga_treino	sigma_unseen	modelo	regime	metrica	ganho_observado	ganho_nulo_mediana	ganho_nulo_p05	ganho_nulo_p95	efeito_calibrado	p_calibrado	B
+IGP dehydratase	3	maior_ordem	pairwise	all	pearson	-0.0161	-0.0275	-0.0312	-0.0242	0.0114	0.0099	100
+IGP dehydratase	3	maior_ordem	pairwise	all	spearman	-0.0604	-0.0685	-0.0819	-0.0541	0.0081	0.2079	100
+IGP dehydratase	3	maior_ordem	pairwise	interpolacao	pearson	0.0475	-0.0165	-0.0197	-0.0146	0.064	0.0099	100
+IGP dehydratase	3	maior_ordem	pairwise	interpolacao	spearman	-0.0088	-0.0293	-0.0392	-0.0229	0.0205	0.0099	100
+IGP dehydratase	3	maior_ordem	pairwise	extrapolacao	pearson	-0.0155	-0.0267	-0.0304	-0.0238	0.0112	0.0099	100
+IGP dehydratase	3	maior_ordem	pairwise	extrapolacao	spearman	-0.0586	-0.0658	-0.0786	-0.0519	0.0071	0.2376	100
+IGP dehydratase	3	maior_ordem	global_iso	all	pearson	0.0277	-0.0007	-0.0012	-0.0004	0.0284	0.0099	100
+IGP dehydratase	3	maior_ordem	global_iso	all	spearman	-0.0016	-0.0002	-0.0004	-0.0001	-0.0014	1.0	100
+IGP dehydratase	3	maior_ordem	global_iso	interpolacao	pearson	0.0393	-0.0012	-0.002	-0.0006	0.0406	0.0099	100
+IGP dehydratase	3	maior_ordem	global_iso	interpolacao	spearman	-0.0021	-0.0014	-0.0025	-0.0002	-0.0008	0.8416	100
+IGP dehydratase	3	maior_ordem	global_iso	extrapolacao	pearson	0.0282	-0.0006	-0.0012	-0.0003	0.0288	0.0099	100
+IGP dehydratase	3	maior_ordem	global_iso	extrapolacao	spearman	-0.0017	-0.0002	-0.0004	-0.0001	-0.0014	1.0	100

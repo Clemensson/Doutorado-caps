@@ -1,0 +1,9 @@
+dataset	carga_treino	sigma_unseen	modelo	regime	metrica	ganho_observado	ganho_nulo_mediana	ganho_nulo_p05	ganho_nulo_p95	efeito_calibrado	p_calibrado	B
+TrpB	2	maior_ordem	pairwise	all	pearson	0.1198	-0.1797	-0.1916	-0.1677	0.2995	0.0099	100
+TrpB	2	maior_ordem	pairwise	all	spearman	-0.0033	-0.183	-0.1964	-0.1727	0.1797	0.0099	100
+TrpB	2	maior_ordem	pairwise	extrapolacao	pearson	0.1198	-0.1797	-0.1916	-0.1677	0.2995	0.0099	100
+TrpB	2	maior_ordem	pairwise	extrapolacao	spearman	-0.0033	-0.183	-0.1964	-0.1727	0.1797	0.0099	100
+TrpB	2	maior_ordem	global_iso	all	pearson	0.3225	-0.0353	-0.0704	-0.0176	0.3578	0.0099	100
+TrpB	2	maior_ordem	global_iso	all	spearman	0.0082	-0.0244	-0.0599	-0.0085	0.0326	0.0099	100
+TrpB	2	maior_ordem	global_iso	extrapolacao	pearson	0.3225	-0.0353	-0.0704	-0.0176	0.3578	0.0099	100
+TrpB	2	maior_ordem	global_iso	extrapolacao	spearman	0.0082	-0.0244	-0.0599	-0.0085	0.0326	0.0099	100
