@@ -141,6 +141,24 @@ central. A terceira **foi retirada**: o efeito é da ordem da variabilidade de
 particionamento e muda de sinal com `val_frac` = 0,05.
 *(`RESULTADOS_SENSIBILIDADE.md`)*
 
+### 8. A natureza da epistasia global: não é censura, e só em parte é log
+
+A última pendência era "replicação em escala log". Inspecionar os dados mostrou que a
+pergunta estava mal posta — o log é impossível em 9 dos 12 conjuntos, dois já estão em
+log, e quatro têm zeros exatos em massa, que são **piso do ensaio** e não escala.
+
+Isso gerou duas perguntas, e a primeira foi uma hipótese minha que caiu:
+
+| Hipótese | Veredicto |
+|---|---|
+| censura no piso do ensaio | **refutada** — o ganho sobrevive ao remover o piso, e o maior ganho (+0,37, ParD3) está onde não há censura |
+| não linearidade logarítmica | **parcial** — o log absorve 15% a 26% |
+| outra forma monotônica | **o que resta, e é a maior parte** |
+
+O modelo aditivo **melhora** em escala log nos três conjuntos testáveis (+0,007 a
++0,037), confirmando o argumento biofísico — mas o ganho da isotônica encolhe só
+15–26%. *(`RESULTADOS_ESCALA.md`)*
+
 ---
 
 ## A afirmação do capítulo
@@ -206,7 +224,7 @@ possível em outro lugar.
 | Sensibilidade a `val_split` | ✅ **feito** — `RESULTADOS_SENSIBILIDADE.md` |
 | Variabilidade de folds | ✅ **feito** — a régua é 0,004 em Pearson e 0,002 em Spearman |
 | Sensibilidade ao $\sigma$ da ordem 4 | parcial — só GB1 e TrpB na carga 3 |
-| Replicação em escala log | pendente |
+| Replicação em escala log | ✅ **feito** — `RESULTADOS_ESCALA.md`, e reformulada |
 
 Os quatro primeiros estão preparados como *array jobs* em `hpc_fcnn_rerun/`. O
 último exige uma decisão de escala por conjunto antes de rodar.
@@ -236,3 +254,4 @@ reportada com precisão decimal.
 | `RESULTADOS_NAC.md` | resultado 5 — a calibração em GB1 e TrpB |
 | `RESULTADOS_MAPA.md` | resultado 6 — **o mapa de regimes, 15 células** |
 | `RESULTADOS_SENSIBILIDADE.md` | resultado 7 — `val_frac` e sementes de fold |
+| `RESULTADOS_ESCALA.md` | resultado 8 — escala *vs* censura |
