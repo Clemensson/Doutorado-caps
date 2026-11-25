@@ -42,8 +42,3 @@ que permite reconstruir qualquer número depois.
 
 Configura a identidade **com o e-mail noreply**, senão o GitHub recusa o push com
 `GH007: Your push would publish a private email address`:
-
-```bash
-git config user.name  "Clemensson"
-git config user.email "134302021+Clemensson@users.noreply.github.com"
-```
