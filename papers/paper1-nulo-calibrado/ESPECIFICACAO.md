@@ -254,13 +254,29 @@ adição guiada pelos dados, não um item do plano.
 3. **O limite de identificabilidade** da §7.1 como fronteira declarada do método,
    não como lacuna.
 
-### 7.4 O que falta para fechar
+### 7.4 Estado das entregas — atualizado em 25/11/2026
+
+As três entregas da §7.3 **estão cumpridas**.
 
 | Item | Estado |
 |---|---|
-| NAC nos 5 conjuntos × 3 cargas (15 células) | 2 feitas (GB1, TrpB, carga 3) |
-| Sensibilidade a `val_split` (0,05 / 0,20) | não medida |
-| Variabilidade de folds (4 sementes) | não medida |
-| Sensibilidade ao $\sigma$ da ordem 4 no nulo | não medida |
-| Replicação em escala log | não medida |
-| Documento de síntese | `SINTESE.md` |
+| NAC nos 5 conjuntos × 3 cargas (15 células) | ✅ `RESULTADOS_MAPA.md` |
+| Sensibilidade a `val_split` (0,05 / 0,20) | ✅ `RESULTADOS_SENSIBILIDADE.md` |
+| Variabilidade de folds (4 sementes) | ✅ `RESULTADOS_SENSIBILIDADE.md` |
+| Sensibilidade ao $\sigma$ da ordem 4 | ⚠️ parcial — só GB1 e TrpB, carga 3 |
+| Replicação em escala log | ✅ `RESULTADOS_ESCALA.md`, reformulada |
+| Documento de síntese | ✅ `SINTESE.md` |
+
+### 7.5 O que permanece aberto, e não bloqueia
+
+Nenhum destes impede a submissão; todos limitam a generalidade de uma afirmação já
+feita, e isso está declarado nos respectivos documentos.
+
+| Aberto | Por quê importa |
+|---|---|
+| σ nas cargas 1 e 2 | a fração de variantes de teste em ordens não vistas é maior ali, e a sensibilidade pode crescer |
+| Escala testada em 3 conjuntos, uma família de ensaio | a *forma* da não linearidade pode ser específica de fluorescência |
+| A forma da não linearidade não tem nome | sabemos que não é censura e que é só 15–26% log; o resto é monotônico não identificado |
+| Teste simétrico (exponenciar AAV2 VP1 e scFv) | confirmaria a direção do efeito de escala |
+| Variabilidade de folds do NAC | medida para a FCNN, não para o NAC |
+| A interpolação tem 5 células | só a carga 3 produz células de interpolação |
