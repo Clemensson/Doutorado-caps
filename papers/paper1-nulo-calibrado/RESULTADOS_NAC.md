@@ -119,7 +119,15 @@ de sobreajuste que acerta a escala global e embaralha o detalhe.
 
 **O `global_iso` é indistinguível do nulo em Spearman.** Efeito de −0,0002, p entre
 0,68 e 0,90. É a invariância a transformações monotônicas confirmada
-quantitativamente contra o nulo, não só por inspeção. O valor de `TrpB` com p ≤ 0,032
+quantitativamente contra o nulo, não só por inspeção.
+
+> ⚠️ **QUALIFICADO em 25/11/2026.** Isto vale no **regime rico em dados**, não em
+> geral. O mapa de 15 células (`RESULTADOS_MAPA.md` §4) mostra que a mediana do nulo
+> para o `global_iso` em Spearman vai de −0,0003 em GB1 carga 3 (n de treino 28.186)
+> a **−0,2731** em ParD3 carga 2 (n de treino 431): com poucos dados a isotônica
+> produz uma escada grosseira, cria empates em massa e o Spearman colapsa sob
+> verdade aditiva. Eu havia tratado como invariância universal o que é um
+> comportamento dependente de n. O valor de `TrpB` com p ≤ 0,032
 e efeito +0,0011 é o exemplo do problema de poder descrito na §1: estatisticamente
 detectável, cientificamente irrelevante.
 

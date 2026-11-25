@@ -111,14 +111,50 @@ ordem alta.
 
 Em Spearman, ninguém melhora o ordenamento. *(`RESULTADOS_NAC.md`)*
 
+### 6. O mapa de regimes: a interação só aparece na interpolação
+
+As 15 células do NAC (5 conjuntos × 3 cargas, B = 100) dão o incremento da interação
+específica sobre o modelo de escala:
+
+| Regime | Incremento em Pearson | Células no piso de significância |
+|---|---|---|
+| **interpolação** | **+0,023 a +0,172, positivo em 5/5** | **5 / 5** |
+| extrapolação | −0,527 a +0,109, inconsistente | 7 / 15 |
+| Spearman, interpolação | negativo em 4/5 | **0 / 5** |
+
+E na **carga de treino 1 nada é aprendível** em conjunto nenhum (|incremento| ≤ 0,04),
+consistente com a subdeterminação estrutural (n/p = 0,80 por construção).
+*(`RESULTADOS_MAPA.md`)*
+
+### 7. As sensibilidades: o resultado central sobrevive, uma afirmação secundária não
+
+Razão entre efeito e desvio entre sementes de fold:
+
+| Efeito | Efeito / desvio |
+|---|---|
+| FCNN em Pearson, interpolação | **31 a 33** |
+| FCNN em Spearman, interpolação | **10 a 21** |
+| "o aditivo é melhor na extrapolação" | **2,1** |
+
+As duas primeiras linhas sustentam a assimetria Pearson/Spearman, que é o instrumento
+central. A terceira **foi retirada**: o efeito é da ordem da variabilidade de
+particionamento e muda de sinal com `val_frac` = 0,05.
+*(`RESULTADOS_SENSIBILIDADE.md`)*
+
 ---
 
 ## A afirmação do capítulo
 
 > Existe estrutura não aditiva forte e inequívoca nas paisagens mais completas do
 > benchmark. Ela é **predominantemente epistasia global — escala — e não epistasia
-> específica entre mutações.** O incremento atribuível a interação pareada é pequeno,
-> inconsistente entre conjuntos, e não se transfere para ordem alta.
+> específica entre mutações.**
+>
+> Epistasia específica **existe e é calibradamente detectável**, mas apenas no regime
+> de **interpolação** e apenas na **magnitude** da correlação: positiva em 5 de 5
+> conjuntos, todas as células no piso de significância. Ela **não melhora o
+> ordenamento em nenhum regime**, e na **extrapolação** — que é o que a engenharia de
+> multimutantes requer — é inconsistente e frequentemente pior que um modelo de
+> escala sem nenhuma capacidade de interação.
 >
 > Consequentemente, **o desempenho de modelos flexíveis em MLDE não é evidência de
 > aprendizado de epistasia** sem que escala e interação sejam separadas. Metade da
@@ -164,13 +200,13 @@ possível em outro lugar.
 
 ## O que falta antes de submeter
 
-| Item | Por quê bloqueia |
+| Item | Estado |
 |---|---|
-| NAC nos 5 conjuntos × 3 cargas (13 das 15 células faltam) | A afirmação da §5 repousa em 2 conjuntos e 1 carga |
-| Sensibilidade a `val_split` (0,05 / 0,20) | O 10% é escolha nossa, não do artigo |
-| Variabilidade de folds (4 sementes) | Uma semente não sustenta efeitos de 0,02 a 0,13 |
-| Sensibilidade ao $\sigma$ da ordem 4 no nulo | Escolha declarada e não quantificada; afeta a §5 |
-| Replicação em escala log | Se o aditivo for ajustado na escala biofisicamente esperada, a proporção escala/interação pode mudar |
+| NAC nas 15 células | ✅ **feito** — `RESULTADOS_MAPA.md` |
+| Sensibilidade a `val_split` | ✅ **feito** — `RESULTADOS_SENSIBILIDADE.md` |
+| Variabilidade de folds | ✅ **feito** — a régua é 0,004 em Pearson e 0,002 em Spearman |
+| Sensibilidade ao $\sigma$ da ordem 4 | parcial — só GB1 e TrpB na carga 3 |
+| Replicação em escala log | pendente |
 
 Os quatro primeiros estão preparados como *array jobs* em `hpc_fcnn_rerun/`. O
 último exige uma decisão de escala por conjunto antes de rodar.
@@ -198,3 +234,5 @@ reportada com precisão decimal.
 | `RESULTADOS_FCNN.md` | resultados 2 e 3 — reexecução pareada e a assimetria |
 | `RESULTADOS_EPISTASIA_GLOBAL.md` | resultado 4 — a metade recuperável |
 | `RESULTADOS_NAC.md` | resultado 5 — a calibração em GB1 e TrpB |
+| `RESULTADOS_MAPA.md` | resultado 6 — **o mapa de regimes, 15 células** |
+| `RESULTADOS_SENSIBILIDADE.md` | resultado 7 — `val_frac` e sementes de fold |

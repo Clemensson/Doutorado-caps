@@ -61,8 +61,16 @@ Essa escolha é mais conservadora que a do `merge.py`, que testava no nível de 
 | `seq` | interpolação | −0,0245 | [−0,0476, −0,0013] | 1/12 | p = 0,021 |
 
 **Na extrapolação — o regime que o framework existe para servir — não há vantagem da
-FCNN.** Com a featurização fiel ao artigo (`seq`), o aditivo é *melhor* em 10 de 12
-conjuntos, com o intervalo tangenciando zero.
+FCNN.**
+
+> ⚠️ **RETIFICADO em 25/11/2026.** A versão original desta frase continuava: "com a
+> featurização fiel ao artigo (`seq`), o aditivo é *melhor* em 10 de 12 conjuntos".
+> A análise de sensibilidade (`RESULTADOS_SENSIBILIDADE.md` §5) mostrou que esse
+> efeito é apenas **2,1 vezes** o desvio entre sementes de fold, e que a amplitude
+> por `val_frac` é da mesma ordem do próprio efeito — em `val_frac` = 0,05 ele chega
+> a mudar de sinal. **A afirmação de que o aditivo é melhor não se sustenta.** O que
+> se sustenta é a ausência de vantagem da FCNN, que é também o que o capítulo
+> precisa.
 
 A vantagem da FCNN sobrevive apenas na **interpolação**, e é pequena em Spearman
 (−0,019 a −0,025).
