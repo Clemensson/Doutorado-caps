@@ -8,11 +8,11 @@ projeto pai; o diretório pode ser copiado isolado.
 | 1 | Reexecução da FCNN | 24 | **sim** | ✅ concluído 22/11 |
 | 2 | Baseline de epistasia global | 12 | não | pronto para submeter |
 | 3 | Nulo Aditivo Calibrado — **o mapa de regimes** | **15** | não | pronto para submeter |
-| 4 | Sensibilidades (`val_frac`, `fold_seed`) | 144 | **sim** | pronto para submeter |
+| 4 | Sensibilidades (`val_frac`, `fold_seed`) | 144 | **sim** | ✅ concluído 25/11 |
+| 5 | **FCNN dentro do nulo calibrado** | **36** | **sim** | pronto para submeter |
 
-Ordem recomendada: **4 primeiro** (fecha as ressalvas que bloqueiam a submissão),
-depois **3** (o resultado novo), depois **2** se quiser reproduzir o baseline no
-cluster — ele já rodou localmente.
+Os experimentos 1 a 4 estão concluídos. **O 5 é o único pendente**, e fecha as
+duas últimas lacunas científicas antes da submissão.
 
 ---
 
@@ -202,3 +202,59 @@ reporte a carga 1 com precisão decimal.
 | Resolução do manifesto de sensibilidade | ✅ testada nos índices 0, 47, 48, 143 |
 | Caminho PyTorch (experimentos 1 e 4) | ✅ validado pela execução do experimento 1 |
 | Experimentos 2 e 3 | ✅ executados localmente antes de portar |
+
+
+---
+
+## Experimento 5 — A FCNN dentro do nulo calibrado
+
+Fecha duas lacunas que o experimento 3 deixou:
+
+**(a) A objeção de revisor.** A conclusão "epistasia específica é pequena" repousa num
+ridge pareado. Um revisor pergunta, com razão: a FCNN, calibrada contra o mesmo nulo,
+encontra mais interação que o pareado? Não respondemos.
+
+**(b) O número central do capítulo não está calibrado.** A vantagem da FCNN sobre o
+aditivo em Pearson na interpolação, +0,13, é a quantidade mais citada do capítulo — e
+nunca foi comparada contra o nulo. Calibramos o pareado e o global, não a rede.
+
+```bash
+python src/calibrated_null_fcnn.py --list-jobs    # confere o mapeamento
+sbatch slurm/nac_fcnn.sbatch                      # 36 tarefas, B=30
+sbatch --array=0-11 slurm/nac_fcnn.sbatch         # só a carga 3
+NAC_REPLICAS=100 sbatch slurm/nac_fcnn.sbatch     # mais resolução, 3x o custo
+```
+
+**36 tarefas** = 12 conjuntos × 3 cargas. Índices 0–11 são a carga 3, 12–23 a carga 2,
+24–35 a carga 1; dentro de cada bloco, conjuntos por custo decrescente.
+
+Todos os modelos rodam nos **mesmos folds** e nas **mesmas paisagens simuladas** —
+aditivo, epistasia global, FCNN e, nos 5 conjuntos identificáveis, ridge pareado — de
+modo que os efeitos calibrados ficam diretamente comparáveis entre si. A featurização
+é `mut`, a mesma que os outros três modelos usam.
+
+### Custo, ancorado em medição
+
+| B | Pior célula | Soma das 36 |
+|---|---|---|
+| **30** (padrão) | **4,6 h** (GB1 carga 3) | 23 h |
+| 100 | 15,4 h | 77 h |
+
+Como array, o tempo de parede é a pior célula. Com B = 30 o piso do p calibrado é
+1/31 = 0,0323, suficiente porque os efeitos em jogo (+0,13) são ordens de magnitude
+maiores que a dispersão dos nulos observada até agora.
+
+### ⚠️ Concessão metodológica a declarar no artigo
+
+A armadilha §3.2 da `ESPECIFICACAO.md` exige seleção de hiperparâmetros **dentro** do
+laço. Para a FCNN isso é inviável: a varredura de Tran et al. tem 72 configurações, e
+72 × 30 × 36 é impossível. Usamos os publicados na Tabela S3, **fixos**.
+
+Direção do viés, que é o que importa: os hiperparâmetros foram ajustados para dados
+**com** epistasia. Numa paisagem simulada puramente aditiva podem ser subótimos, então
+a FCNN do nulo rende menos do que renderia, o nulo fica baixo demais, e o efeito
+calibrado fica **alto demais**.
+
+Isso **superestima** o incremento de interação da FCNN — ou seja, trabalha **contra** a
+hipótese do capítulo. Um incremento medido pequeno sob este viés é resultado forte; um
+incremento grande seria ambíguo entre interação genuína e artefato de hiperparâmetro.
