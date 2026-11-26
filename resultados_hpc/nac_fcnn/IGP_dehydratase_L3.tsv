@@ -1,0 +1,19 @@
+dataset	carga_treino	modelo	featurizacao	regime	metrica	ganho_observado	ganho_nulo_mediana	ganho_nulo_p05	ganho_nulo_p95	efeito_calibrado	p_calibrado	B	sigma_unseen	val_frac	hp_num_layers	hp_batch_size
+IGP dehydratase	3	global_iso	mut	all	pearson	0.0277	-0.0007	-0.0012	-0.0005	0.0285	0.0323	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	global_iso	mut	all	spearman	-0.0016	-0.0003	-0.0004	-0.0001	-0.0014	1.0	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	global_iso	mut	interpolacao	pearson	0.0393	-0.0012	-0.002	-0.0007	0.0405	0.0323	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	global_iso	mut	interpolacao	spearman	-0.0021	-0.0013	-0.0027	-0.0004	-0.0009	0.8387	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	global_iso	mut	extrapolacao	pearson	0.0282	-0.0007	-0.0012	-0.0005	0.0289	0.0323	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	global_iso	mut	extrapolacao	spearman	-0.0016	-0.0002	-0.0004	-0.0001	-0.0014	1.0	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	fcnn	mut	all	pearson	0.0072	-0.0172	-0.0214	-0.0128	0.0244	0.0323	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	fcnn	mut	all	spearman	-0.0633	-0.067	-0.0837	-0.049	0.0037	0.3548	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	fcnn	mut	interpolacao	pearson	0.0849	-0.0058	-0.0079	-0.0044	0.0907	0.0323	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	fcnn	mut	interpolacao	spearman	0.0098	-0.013	-0.0181	-0.0081	0.0228	0.0323	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	fcnn	mut	extrapolacao	pearson	0.0064	-0.0158	-0.0197	-0.0118	0.0222	0.0323	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	fcnn	mut	extrapolacao	spearman	-0.0643	-0.0619	-0.0776	-0.0447	-0.0023	0.7097	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	pairwise	mut	all	pearson	-0.0161	-0.0269	-0.03	-0.0248	0.0108	0.0323	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	pairwise	mut	all	spearman	-0.0604	-0.0678	-0.0814	-0.0563	0.0074	0.2258	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	pairwise	mut	interpolacao	pearson	0.0475	-0.0158	-0.0185	-0.0144	0.0633	0.0323	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	pairwise	mut	interpolacao	spearman	-0.0088	-0.0277	-0.0369	-0.0218	0.0188	0.0323	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	pairwise	mut	extrapolacao	pearson	-0.0155	-0.0264	-0.0296	-0.0243	0.0109	0.0323	30	maior_ordem	0.1	4	32
+IGP dehydratase	3	pairwise	mut	extrapolacao	spearman	-0.0586	-0.0657	-0.0782	-0.0542	0.0071	0.2258	30	maior_ordem	0.1	4	32

@@ -1,0 +1,13 @@
+dataset	carga_treino	modelo	featurizacao	regime	metrica	ganho_observado	ganho_nulo_mediana	ganho_nulo_p05	ganho_nulo_p95	efeito_calibrado	p_calibrado	B	sigma_unseen	val_frac	hp_num_layers	hp_batch_size
+AAV2 VP1	3	global_iso	mut	all	pearson	0.0527	-0.0253	-0.0306	-0.0171	0.078	0.0323	30	maior_ordem	0.1	3	16
+AAV2 VP1	3	global_iso	mut	all	spearman	0.0	-0.0002	-0.0003	-0.0001	0.0003	0.0323	30	maior_ordem	0.1	3	16
+AAV2 VP1	3	global_iso	mut	interpolacao	pearson	0.0166	-0.0008	-0.0012	-0.0004	0.0173	0.0323	30	maior_ordem	0.1	3	16
+AAV2 VP1	3	global_iso	mut	interpolacao	spearman	-0.0009	-0.001	-0.0016	-0.0005	0.0	0.4516	30	maior_ordem	0.1	3	16
+AAV2 VP1	3	global_iso	mut	extrapolacao	pearson	0.0489	-0.027	-0.0326	-0.0185	0.0759	0.0323	30	maior_ordem	0.1	3	16
+AAV2 VP1	3	global_iso	mut	extrapolacao	spearman	0.0001	-0.0001	-0.0002	-0.0	0.0002	0.0323	30	maior_ordem	0.1	3	16
+AAV2 VP1	3	fcnn	mut	all	pearson	0.0975	-0.0357	-0.046	-0.0289	0.1333	0.0323	30	maior_ordem	0.1	3	16
+AAV2 VP1	3	fcnn	mut	all	spearman	0.1842	-0.03	-0.0423	-0.0173	0.2142	0.0323	30	maior_ordem	0.1	3	16
+AAV2 VP1	3	fcnn	mut	interpolacao	pearson	0.0639	-0.0075	-0.0089	-0.0062	0.0713	0.0323	30	maior_ordem	0.1	3	16
+AAV2 VP1	3	fcnn	mut	interpolacao	spearman	0.0855	-0.0095	-0.0122	-0.0077	0.095	0.0323	30	maior_ordem	0.1	3	16
+AAV2 VP1	3	fcnn	mut	extrapolacao	pearson	0.0769	-0.0349	-0.044	-0.029	0.1118	0.0323	30	maior_ordem	0.1	3	16
+AAV2 VP1	3	fcnn	mut	extrapolacao	spearman	0.1639	-0.0274	-0.0398	-0.0155	0.1913	0.0323	30	maior_ordem	0.1	3	16
