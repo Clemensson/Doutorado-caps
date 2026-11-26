@@ -161,6 +161,12 @@ em que todas as mutações isoladas ficam abaixo da mediana e a combinação fic
 superior. <b>Sem as partes</b>: multimutantes que não podem ser analisados porque
 alguma mutação constituinte não foi medida sozinha.</p>
 
+<figure>{img(F / 'fig3_candidatos.png')}
+<figcaption><b>Dois jeitos de olhar o mesmo fato.</b> À esquerda, quantos candidatos
+cada conjunto tem; à direita, que fração das combinações analisáveis eles
+representam. IGP dehydratase ganha em número absoluto, ParD3 em taxa.
+</figcaption></figure>
+
 <div class="caixa alerta">
 <b>O sinal é raro em todo lugar.</b> No melhor conjunto, 0,73% das combinações são
 candidatas. Isso muda o tipo de problema: não é regressão comum, é
@@ -255,8 +261,8 @@ conjunta.</li>
 
 <h3>Análises que faltam, em ordem de valor</h3>
 <table><thead><tr><th>#</th><th>Análise</th><th>O que decide</th></tr></thead><tbody>
-<tr class="destaque"><td>1</td><td>Curva do score contra a soma dos efeitos
-individuais</td><td>mostra se os efeitos se somam ou não, e de que forma</td></tr>
+<tr><td>1</td><td><s>Curva do score contra a soma dos efeitos individuais</s></td><td><b>FEITA</b> — ver seção 6</td></tr>
+<tr class="destaque"><td>1b</td><td>Ajustar uma sigmoide paramétrica de 4 parâmetros</td><td>dá significado biofísico ao piso, teto e inclinação</td></tr>
 <tr><td>2</td><td>Densidade de pares de posições com duplos medidos</td>
 <td>por que alguns conjuntos sustentam interação e outros não</td></tr>
 <tr><td>3</td><td>Caracterizar os 1.534 candidatos do IGP</td>
@@ -272,6 +278,56 @@ escritas no código. Nenhuma das duas incorpora incerteza de medição: são cor
 determinísticos. Com 87% de massa no piso em alguns conjuntos, parte do que contamos
 pode ser ruído. É o próximo item a endurecer.
 </div>
+
+<div class="quebra"></div>
+<h2>6. A forma da não linearidade</h2>
+<p>Esta era a análise nº 1 da lista de próximos passos, e foi feita. A pergunta:
+<b>os efeitos das mutações se somam?</b></p>
+<p>Ajustamos um modelo que supõe exatamente isso — que o efeito de uma combinação é a
+soma dos efeitos individuais — e comparamos a previsão dele com o que foi medido.
+<b>Se os efeitos somassem, os pontos cairiam sobre a diagonal.</b></p>
+
+<figure>{img(F / 'fig6_curva_aditiva.png')}
+<figcaption><b>Em 10 dos 12 conjuntos a curva é uma sigmoide: piso achatado,
+transição íngreme, teto.</b> O piso é a região onde tudo já morreu e o modelo
+continua prevendo valores menores sem que o medido desça. O teto é saturação.
+</figcaption></figure>
+
+<p><b>Por que isso importa para quem vai modelar.</b> A não linearidade não é um
+detalhe: é a maior parte do desvio em relação ao modelo aditivo. E ela tem duas
+pontas — piso e teto — o que significa que uma transformação logarítmica <i>não</i>
+resolve, porque log comprime só a ponta de cima.</p>
+
+<p>Duas exceções valem nota. <b>Phototropin</b> é quase linear: ali os efeitos
+realmente se somam. <b>TrpB</b> entorta para o outro lado, com retornos
+decrescentes.</p>
+
+<figure>{img(F / 'fig7_assimetria.png')}
+<figcaption><b>O tipo de erro que o modelo aditivo comete separa os conjuntos em dois
+grupos.</b> Quando acerta a ordem e erra a escala, falta uma transformação. Quando
+erra a ordem — TrpB, NucB, ParD3, IGP — nenhuma transformação resolve: há interação
+entre as mutações.</figcaption></figure>
+
+<div class="caixa">
+<b>Para entender a figura acima.</b> Pearson mede se os valores batem; Spearman mede
+se a <i>ordem</i> bate. Uma transformação que não altera a ordem (esticar, comprimir,
+curvar sem cruzar) muda o Pearson e deixa o Spearman intacto. Então: ponto escuro à
+direita significa "a ordem está certa, só a escala está errada". Ponto escuro à
+esquerda significa "a ordem está errada" — e isso <b>nenhuma</b> transformação
+conserta.
+</div>
+
+<div class="caixa alerta">
+<b>Consequência direta para a nossa pergunta.</b> O piso é o obstáculo. Numa faixa
+onde todas as variantes estão mortas, não dá para distinguir "as duas mutações se
+compensaram em parte" de "as duas mataram a proteína". <b>Candidatos compensatórios
+que caem na faixa do piso não são interpretáveis</b> — o que estreita ainda mais os
+0,73%.
+</div>
+
+<p class="sub">Ressalva: "sigmoide" aqui é descrição visual, não ajuste. Nenhuma
+função sigmoidal foi ajustada nem comparada com alternativas. Detalhes em
+<code>exploratoria/RESULTADO_ANALISE1.md</code>.</p>
 
 <div class="rodape">
 <b>Como foi feito.</b> Estatísticas calculadas sobre os dados completos (375 MB, 12
