@@ -70,3 +70,10 @@ hpc_fcnn_rerun/results*/**
 hpc_fcnn_rerun/logs/**
 hpc_fcnn_rerun/.venv/
 hpc_fcnn_rerun/merged.tsv
+
+# Exploratoria: figuras e resultados gerados
+exploratoria/figuras/*.png
+exploratoria/figuras/*.pdf
+exploratoria/figuras/*.svg
+exploratoria/resultados/**
+!exploratoria/resultados/.gitkeep
