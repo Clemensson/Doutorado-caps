@@ -220,6 +220,31 @@ Verificado que a concessão de hiperparâmetros fixos **não** explica isso: o h
 do nulo é de −0,018 em média, e em GB1 contribui 1,4% do efeito.
 *(`RESULTADOS_NAC_FCNN.md`)*
 
+### 10. Verificação de escopo: o que a literatura base realmente afirma
+
+Checagem textual dos dois PDFs em 26/11, e ela expôs dois erros de enquadramento
+(`ESCOPO_DA_LITERATURA.md`):
+
+**"Mutações compensatórias" não é afirmação de nenhum dos artigos** — `compensat*`
+aparece zero vezes. O vocabulário é `synergistic` (epistasia positiva) e, só para o
+HuABC2, `antagonistic` (compromisso expressão × afinidade, multiobjetivo). O mais
+próximo de compensatório está em Koo como **limitação**: variantes ótimas que exigiriam
+mutações neutras ou deletérias isoladamente — ou seja o que o framework **não** faz, e
+que delimitamos como Artigo 3.
+
+**As afirmações fortes do DeWitt lab são sobre as aplicações de engenharia, não sobre o
+benchmark.** O r = 1,00 e o "não supera o aditivo em teste separado" referem-se a
+APEX, dCasRx e HuABC2. No benchmark DMS a afirmação é mais estreita: a progressão da
+Fig. 2E não é evidência de epistasia. Logo nosso Marco Zero **confirma** o preprint, e
+nosso resultado da FCNN no nulo **não o contradiz** — é sobre outros dados.
+
+**E uma limitação do Artigo 1 que eu nunca havia declarado.** O preprint objeta que o
+benchmark treina com 10⁴–10⁵ variantes enquanto as aplicações reais treinam com
+**centenas**. Isso se aplica a nós: nossos treinos vão de 30 a 28.186. A conclusão vale
+no regime do benchmark, e a transferência para o regime de engenharia **não está
+demonstrada**. Consistente com isso, na carga de treino 1 — a mais próxima do regime
+real — nada é aprendível em conjunto nenhum.
+
 ---
 
 ## Onde isto é verificável, e onde não

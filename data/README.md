@@ -16,6 +16,7 @@ Levantamento feito em 2026-11-20.
 | Tabelas suplementares (Tran et al.) | DOI [10.5281/zenodo.18240028](https://doi.org/10.5281/zenodo.18240028) | `external/zenodo-18240028/` — **16/16 arquivos, 8,5 MB** | Tabelas S1–S16 |
 | Código oficial MULTI-evolve | [VincentQTran/MULTI-evolve](https://github.com/VincentQTran/MULTI-evolve) | `external/multievolve-code/` | commit `5cdb074`, 2026-02-27 |
 | Reanálise com nulos aditivos | [dewitt-lab/multievolve-baselines](https://github.com/dewitt-lab/multievolve-baselines) | `external/multievolve-baselines/` | commit `e733e6f`, **2026-11-11** |
+| ThermoMutDB (Xavier et al. 2021) | DOI [10.1093/nar/gkaa925](https://doi.org/10.1093/nar/gkaa925) | `external/thermomutdb/` — **vazio, pendente** | Mutações × estabilidade térmica (ΔTm, ΔΔG); ver `PROCEDENCIA.md` |
 
 O registro 17620759 declara que os conjuntos vêm do [ProteinGym](https://proteingym.org/)
 e de três estudos adicionais (DOIs `10.1016/j.cels.2025.101236`,

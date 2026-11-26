@@ -128,10 +128,19 @@ A afirmação defensável passa a ser:
 > captura — ele sobreajusta e piora o ordenamento — o que torna modelos de interação
 > pareada um instrumento inadequado para medi-la.
 
-Isso é mais forte e mais interessante que a conclusão anterior, e **contradiz a leitura
-de que o desempenho do MULTI-evolve não envolve aprendizado de epistasia**. Envolve.
-O que não se sustenta é atribuir a ele *todo* o desempenho: metade é escala, e a
+Isso é mais forte e mais interessante que a conclusão anterior. O que não se sustenta
+é atribuir ao aprendizado de epistasia *todo* o desempenho: metade é escala, e a
 progressão da Fig. 2E continua sendo artefato de redução de variância.
+
+> ⚠️ **CORRIGIDO em 26/11/2026.** A versão original desta frase dizia que o resultado
+> *"contradiz a leitura de que o desempenho do MULTI-evolve não envolve aprendizado de
+> epistasia"*. **Impreciso.** A verificação de escopo
+> (`ESCOPO_DA_LITERATURA.md` §2) mostrou que as afirmações fortes do DeWitt lab —
+> r = 1,00 e "não supera o aditivo em teste separado" — são sobre as **três aplicações
+> de engenharia** (APEX, dCasRx, HuABC2), não sobre o benchmark DMS. No benchmark eles
+> afirmaram algo mais estreito: que a progressão da Fig. 2E não é evidência de
+> aprendizado de epistasia. Nosso resultado **não contradiz** o deles, porque é sobre
+> outros dados.
 
 ---
 
