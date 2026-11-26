@@ -1,0 +1,1308 @@
+{
+  "gerado_em": "2026-11-26",
+  "semente": 20261126,
+  "conjuntos": [
+    {
+      "arquivo_origem": "CAPSD_AAV2S_Sinai_2021.csv",
+      "n_populacao": 42328,
+      "n_amostra": 20659,
+      "fracao": 0.4881,
+      "semente": 20261126,
+      "min_por_estrato": 200,
+      "estratos": [
+        {
+          "ordem": 1,
+          "n_populacao": 532,
+          "n_amostra": 251,
+          "peso": 2.1195
+        },
+        {
+          "ordem": 2,
+          "n_populacao": 10833,
+          "n_amostra": 5119,
+          "peso": 2.1162
+        },
+        {
+          "ordem": 3,
+          "n_populacao": 6906,
+          "n_amostra": 3263,
+          "peso": 2.1165
+        },
+        {
+          "ordem": 4,
+          "n_populacao": 6646,
+          "n_amostra": 3140,
+          "peso": 2.1166
+        },
+        {
+          "ordem": 5,
+          "n_populacao": 6298,
+          "n_amostra": 2976,
+          "peso": 2.1163
+        },
+        {
+          "ordem": 6,
+          "n_populacao": 5396,
+          "n_amostra": 2550,
+          "peso": 2.1161
+        },
+        {
+          "ordem": 7,
+          "n_populacao": 858,
+          "n_amostra": 405,
+          "peso": 2.1185
+        },
+        {
+          "ordem": 8,
+          "n_populacao": 739,
+          "n_amostra": 349,
+          "peso": 2.1175
+        },
+        {
+          "ordem": 9,
+          "n_populacao": 651,
+          "n_amostra": 308,
+          "peso": 2.1136
+        },
+        {
+          "ordem": 10,
+          "n_populacao": 583,
+          "n_amostra": 275,
+          "peso": 2.12
+        },
+        {
+          "ordem": 11,
+          "n_populacao": 445,
+          "n_amostra": 210,
+          "peso": 2.119
+        },
+        {
+          "ordem": 12,
+          "n_populacao": 407,
+          "n_amostra": 200,
+          "peso": 2.035
+        },
+        {
+          "ordem": 13,
+          "n_populacao": 368,
+          "n_amostra": 200,
+          "peso": 1.84
+        },
+        {
+          "ordem": 14,
+          "n_populacao": 328,
+          "n_amostra": 200,
+          "peso": 1.64
+        },
+        {
+          "ordem": 15,
+          "n_populacao": 286,
+          "n_amostra": 200,
+          "peso": 1.43
+        },
+        {
+          "ordem": 16,
+          "n_populacao": 236,
+          "n_amostra": 200,
+          "peso": 1.18
+        },
+        {
+          "ordem": 17,
+          "n_populacao": 203,
+          "n_amostra": 200,
+          "peso": 1.015
+        },
+        {
+          "ordem": 18,
+          "n_populacao": 159,
+          "n_amostra": 159,
+          "peso": 1.0
+        },
+        {
+          "ordem": 19,
+          "n_populacao": 119,
+          "n_amostra": 119,
+          "peso": 1.0
+        },
+        {
+          "ordem": 20,
+          "n_populacao": 93,
+          "n_amostra": 93,
+          "peso": 1.0
+        },
+        {
+          "ordem": 21,
+          "n_populacao": 74,
+          "n_amostra": 74,
+          "peso": 1.0
+        },
+        {
+          "ordem": 22,
+          "n_populacao": 56,
+          "n_amostra": 56,
+          "peso": 1.0
+        },
+        {
+          "ordem": 23,
+          "n_populacao": 43,
+          "n_amostra": 43,
+          "peso": 1.0
+        },
+        {
+          "ordem": 24,
+          "n_populacao": 29,
+          "n_amostra": 29,
+          "peso": 1.0
+        },
+        {
+          "ordem": 25,
+          "n_populacao": 17,
+          "n_amostra": 17,
+          "peso": 1.0
+        },
+        {
+          "ordem": 26,
+          "n_populacao": 12,
+          "n_amostra": 12,
+          "peso": 1.0
+        },
+        {
+          "ordem": 27,
+          "n_populacao": 8,
+          "n_amostra": 8,
+          "peso": 1.0
+        },
+        {
+          "ordem": 28,
+          "n_populacao": 3,
+          "n_amostra": 3,
+          "peso": 1.0
+        }
+      ],
+      "sha256_amostra": "d376ea0f81428afc",
+      "mb_amostra": 15.5
+    },
+    {
+      "arquivo_origem": "D7PM05_CLYGR_Somermeyer_2022.csv",
+      "n_populacao": 24515,
+      "n_amostra": 20045,
+      "fracao": 0.8177,
+      "semente": 20261126,
+      "min_por_estrato": 200,
+      "estratos": [
+        {
+          "ordem": 1,
+          "n_populacao": 1169,
+          "n_amostra": 954,
+          "peso": 1.2254
+        },
+        {
+          "ordem": 2,
+          "n_populacao": 10148,
+          "n_amostra": 8279,
+          "peso": 1.2258
+        },
+        {
+          "ordem": 3,
+          "n_populacao": 6315,
+          "n_amostra": 5152,
+          "peso": 1.2257
+        },
+        {
+          "ordem": 4,
+          "n_populacao": 3417,
+          "n_amostra": 2788,
+          "peso": 1.2256
+        },
+        {
+          "ordem": 5,
+          "n_populacao": 1752,
+          "n_amostra": 1429,
+          "peso": 1.226
+        },
+        {
+          "ordem": 6,
+          "n_populacao": 935,
+          "n_amostra": 763,
+          "peso": 1.2254
+        },
+        {
+          "ordem": 7,
+          "n_populacao": 427,
+          "n_amostra": 348,
+          "peso": 1.227
+        },
+        {
+          "ordem": 8,
+          "n_populacao": 220,
+          "n_amostra": 200,
+          "peso": 1.1
+        },
+        {
+          "ordem": 9,
+          "n_populacao": 76,
+          "n_amostra": 76,
+          "peso": 1.0
+        },
+        {
+          "ordem": 10,
+          "n_populacao": 33,
+          "n_amostra": 33,
+          "peso": 1.0
+        },
+        {
+          "ordem": 11,
+          "n_populacao": 16,
+          "n_amostra": 16,
+          "peso": 1.0
+        },
+        {
+          "ordem": 12,
+          "n_populacao": 3,
+          "n_amostra": 3,
+          "peso": 1.0
+        },
+        {
+          "ordem": 13,
+          "n_populacao": 2,
+          "n_amostra": 2,
+          "peso": 1.0
+        },
+        {
+          "ordem": 14,
+          "n_populacao": 1,
+          "n_amostra": 1,
+          "peso": 1.0
+        },
+        {
+          "ordem": 23,
+          "n_populacao": 1,
+          "n_amostra": 1,
+          "peso": 1.0
+        }
+      ],
+      "sha256_amostra": "36ce687092f189ec",
+      "mb_amostra": 5.2
+    },
+    {
+      "arquivo_origem": "F7YBW8_MESOW_Aakre_2015.csv",
+      "n_populacao": 9192,
+      "n_amostra": 9192,
+      "fracao": 1.0,
+      "semente": 20261126,
+      "min_por_estrato": 200,
+      "estratos": [
+        {
+          "ordem": 1,
+          "n_populacao": 37,
+          "n_amostra": 37,
+          "peso": 1.0
+        },
+        {
+          "ordem": 2,
+          "n_populacao": 499,
+          "n_amostra": 499,
+          "peso": 1.0
+        },
+        {
+          "ordem": 3,
+          "n_populacao": 2798,
+          "n_amostra": 2798,
+          "peso": 1.0
+        },
+        {
+          "ordem": 4,
+          "n_populacao": 5858,
+          "n_amostra": 5858,
+          "peso": 1.0
+        }
+      ],
+      "sha256_amostra": "82d4bbff0e08c48e",
+      "mb_amostra": 1.1
+    },
+    {
+      "arquivo_origem": "GFP_AEQVI_Sarkisyan_2016.csv",
+      "n_populacao": 51714,
+      "n_amostra": 20201,
+      "fracao": 0.3906,
+      "semente": 20261126,
+      "min_por_estrato": 200,
+      "estratos": [
+        {
+          "ordem": 1,
+          "n_populacao": 1084,
+          "n_amostra": 419,
+          "peso": 2.5871
+        },
+        {
+          "ordem": 2,
+          "n_populacao": 12777,
+          "n_amostra": 4941,
+          "peso": 2.5859
+        },
+        {
+          "ordem": 3,
+          "n_populacao": 12336,
+          "n_amostra": 4771,
+          "peso": 2.5856
+        },
+        {
+          "ordem": 4,
+          "n_populacao": 9387,
+          "n_amostra": 3630,
+          "peso": 2.586
+        },
+        {
+          "ordem": 5,
+          "n_populacao": 6825,
+          "n_amostra": 2640,
+          "peso": 2.5852
+        },
+        {
+          "ordem": 6,
+          "n_populacao": 4298,
+          "n_amostra": 1662,
+          "peso": 2.586
+        },
+        {
+          "ordem": 7,
+          "n_populacao": 2526,
+          "n_amostra": 977,
+          "peso": 2.5855
+        },
+        {
+          "ordem": 8,
+          "n_populacao": 1364,
+          "n_amostra": 528,
+          "peso": 2.5833
+        },
+        {
+          "ordem": 9,
+          "n_populacao": 627,
+          "n_amostra": 242,
+          "peso": 2.5909
+        },
+        {
+          "ordem": 10,
+          "n_populacao": 299,
+          "n_amostra": 200,
+          "peso": 1.495
+        },
+        {
+          "ordem": 11,
+          "n_populacao": 118,
+          "n_amostra": 118,
+          "peso": 1.0
+        },
+        {
+          "ordem": 12,
+          "n_populacao": 43,
+          "n_amostra": 43,
+          "peso": 1.0
+        },
+        {
+          "ordem": 13,
+          "n_populacao": 23,
+          "n_amostra": 23,
+          "peso": 1.0
+        },
+        {
+          "ordem": 14,
+          "n_populacao": 5,
+          "n_amostra": 5,
+          "peso": 1.0
+        },
+        {
+          "ordem": 15,
+          "n_populacao": 2,
+          "n_amostra": 2,
+          "peso": 1.0
+        }
+      ],
+      "sha256_amostra": "1be185cb25b15488",
+      "mb_amostra": 5.4
+    },
+    {
+      "arquivo_origem": "HIS7_YEAST_Pokusaeva_2019.csv",
+      "n_populacao": 496137,
+      "n_amostra": 20990,
+      "fracao": 0.0423,
+      "semente": 20261126,
+      "min_por_estrato": 200,
+      "estratos": [
+        {
+          "ordem": 1,
+          "n_populacao": 168,
+          "n_amostra": 168,
+          "peso": 1.0
+        },
+        {
+          "ordem": 2,
+          "n_populacao": 1475,
+          "n_amostra": 200,
+          "peso": 7.375
+        },
+        {
+          "ordem": 3,
+          "n_populacao": 7627,
+          "n_amostra": 307,
+          "peso": 24.8436
+        },
+        {
+          "ordem": 4,
+          "n_populacao": 25927,
+          "n_amostra": 1045,
+          "peso": 24.8105
+        },
+        {
+          "ordem": 5,
+          "n_populacao": 60263,
+          "n_amostra": 2429,
+          "peso": 24.8098
+        },
+        {
+          "ordem": 6,
+          "n_populacao": 98869,
+          "n_amostra": 3986,
+          "peso": 24.8041
+        },
+        {
+          "ordem": 7,
+          "n_populacao": 115751,
+          "n_amostra": 4666,
+          "peso": 24.8073
+        },
+        {
+          "ordem": 8,
+          "n_populacao": 97639,
+          "n_amostra": 3936,
+          "peso": 24.8067
+        },
+        {
+          "ordem": 9,
+          "n_populacao": 57139,
+          "n_amostra": 2303,
+          "peso": 24.8107
+        },
+        {
+          "ordem": 10,
+          "n_populacao": 22942,
+          "n_amostra": 925,
+          "peso": 24.8022
+        },
+        {
+          "ordem": 11,
+          "n_populacao": 6370,
+          "n_amostra": 257,
+          "peso": 24.786
+        },
+        {
+          "ordem": 12,
+          "n_populacao": 1354,
+          "n_amostra": 200,
+          "peso": 6.77
+        },
+        {
+          "ordem": 13,
+          "n_populacao": 245,
+          "n_amostra": 200,
+          "peso": 1.225
+        },
+        {
+          "ordem": 14,
+          "n_populacao": 71,
+          "n_amostra": 71,
+          "peso": 1.0
+        },
+        {
+          "ordem": 15,
+          "n_populacao": 40,
+          "n_amostra": 40,
+          "peso": 1.0
+        },
+        {
+          "ordem": 16,
+          "n_populacao": 39,
+          "n_amostra": 39,
+          "peso": 1.0
+        },
+        {
+          "ordem": 17,
+          "n_populacao": 29,
+          "n_amostra": 29,
+          "peso": 1.0
+        },
+        {
+          "ordem": 18,
+          "n_populacao": 35,
+          "n_amostra": 35,
+          "peso": 1.0
+        },
+        {
+          "ordem": 19,
+          "n_populacao": 38,
+          "n_amostra": 38,
+          "peso": 1.0
+        },
+        {
+          "ordem": 20,
+          "n_populacao": 24,
+          "n_amostra": 24,
+          "peso": 1.0
+        },
+        {
+          "ordem": 21,
+          "n_populacao": 18,
+          "n_amostra": 18,
+          "peso": 1.0
+        },
+        {
+          "ordem": 22,
+          "n_populacao": 16,
+          "n_amostra": 16,
+          "peso": 1.0
+        },
+        {
+          "ordem": 23,
+          "n_populacao": 14,
+          "n_amostra": 14,
+          "peso": 1.0
+        },
+        {
+          "ordem": 24,
+          "n_populacao": 16,
+          "n_amostra": 16,
+          "peso": 1.0
+        },
+        {
+          "ordem": 25,
+          "n_populacao": 10,
+          "n_amostra": 10,
+          "peso": 1.0
+        },
+        {
+          "ordem": 26,
+          "n_populacao": 11,
+          "n_amostra": 11,
+          "peso": 1.0
+        },
+        {
+          "ordem": 27,
+          "n_populacao": 4,
+          "n_amostra": 4,
+          "peso": 1.0
+        },
+        {
+          "ordem": 28,
+          "n_populacao": 3,
+          "n_amostra": 3,
+          "peso": 1.0
+        }
+      ],
+      "sha256_amostra": "1978a57ee2b1ad89",
+      "mb_amostra": 5.5
+    },
+    {
+      "arquivo_origem": "PHOT_CHLRE_Chen_2023.csv",
+      "n_populacao": 167529,
+      "n_amostra": 20464,
+      "fracao": 0.1222,
+      "semente": 20261126,
+      "min_por_estrato": 200,
+      "estratos": [
+        {
+          "ordem": 1,
+          "n_populacao": 2122,
+          "n_amostra": 253,
+          "peso": 8.3874
+        },
+        {
+          "ordem": 2,
+          "n_populacao": 176,
+          "n_amostra": 176,
+          "peso": 1.0
+        },
+        {
+          "ordem": 3,
+          "n_populacao": 978,
+          "n_amostra": 200,
+          "peso": 4.89
+        },
+        {
+          "ordem": 4,
+          "n_populacao": 3565,
+          "n_amostra": 426,
+          "peso": 8.3685
+        },
+        {
+          "ordem": 5,
+          "n_populacao": 9603,
+          "n_amostra": 1146,
+          "peso": 8.3796
+        },
+        {
+          "ordem": 6,
+          "n_populacao": 19193,
+          "n_amostra": 2291,
+          "peso": 8.3776
+        },
+        {
+          "ordem": 7,
+          "n_populacao": 29255,
+          "n_amostra": 3493,
+          "peso": 8.3753
+        },
+        {
+          "ordem": 8,
+          "n_populacao": 34230,
+          "n_amostra": 4086,
+          "peso": 8.3774
+        },
+        {
+          "ordem": 9,
+          "n_populacao": 30925,
+          "n_amostra": 3692,
+          "peso": 8.3762
+        },
+        {
+          "ordem": 10,
+          "n_populacao": 21167,
+          "n_amostra": 2527,
+          "peso": 8.3763
+        },
+        {
+          "ordem": 11,
+          "n_populacao": 11022,
+          "n_amostra": 1316,
+          "peso": 8.3754
+        },
+        {
+          "ordem": 12,
+          "n_populacao": 4093,
+          "n_amostra": 489,
+          "peso": 8.3701
+        },
+        {
+          "ordem": 13,
+          "n_populacao": 1031,
+          "n_amostra": 200,
+          "peso": 5.155
+        },
+        {
+          "ordem": 14,
+          "n_populacao": 159,
+          "n_amostra": 159,
+          "peso": 1.0
+        },
+        {
+          "ordem": 15,
+          "n_populacao": 10,
+          "n_amostra": 10,
+          "peso": 1.0
+        }
+      ],
+      "sha256_amostra": "110dea3487dcc12c",
+      "mb_amostra": 3.5
+    },
+    {
+      "arquivo_origem": "Q65J43_BACLD_g4_Thomas_2025.csv",
+      "n_populacao": 15404,
+      "n_amostra": 15404,
+      "fracao": 1.0,
+      "semente": 20261126,
+      "min_por_estrato": 200,
+      "estratos": [
+        {
+          "ordem": 1,
+          "n_populacao": 221,
+          "n_amostra": 221,
+          "peso": 1.0
+        },
+        {
+          "ordem": 2,
+          "n_populacao": 850,
+          "n_amostra": 850,
+          "peso": 1.0
+        },
+        {
+          "ordem": 3,
+          "n_populacao": 1048,
+          "n_amostra": 1048,
+          "peso": 1.0
+        },
+        {
+          "ordem": 4,
+          "n_populacao": 894,
+          "n_amostra": 894,
+          "peso": 1.0
+        },
+        {
+          "ordem": 5,
+          "n_populacao": 924,
+          "n_amostra": 924,
+          "peso": 1.0
+        },
+        {
+          "ordem": 6,
+          "n_populacao": 1123,
+          "n_amostra": 1123,
+          "peso": 1.0
+        },
+        {
+          "ordem": 7,
+          "n_populacao": 969,
+          "n_amostra": 969,
+          "peso": 1.0
+        },
+        {
+          "ordem": 8,
+          "n_populacao": 1193,
+          "n_amostra": 1193,
+          "peso": 1.0
+        },
+        {
+          "ordem": 9,
+          "n_populacao": 920,
+          "n_amostra": 920,
+          "peso": 1.0
+        },
+        {
+          "ordem": 10,
+          "n_populacao": 2436,
+          "n_amostra": 2436,
+          "peso": 1.0
+        },
+        {
+          "ordem": 11,
+          "n_populacao": 2550,
+          "n_amostra": 2550,
+          "peso": 1.0
+        },
+        {
+          "ordem": 12,
+          "n_populacao": 1292,
+          "n_amostra": 1292,
+          "peso": 1.0
+        },
+        {
+          "ordem": 13,
+          "n_populacao": 310,
+          "n_amostra": 310,
+          "peso": 1.0
+        },
+        {
+          "ordem": 14,
+          "n_populacao": 95,
+          "n_amostra": 95,
+          "peso": 1.0
+        },
+        {
+          "ordem": 15,
+          "n_populacao": 274,
+          "n_amostra": 274,
+          "peso": 1.0
+        },
+        {
+          "ordem": 16,
+          "n_populacao": 77,
+          "n_amostra": 77,
+          "peso": 1.0
+        },
+        {
+          "ordem": 17,
+          "n_populacao": 31,
+          "n_amostra": 31,
+          "peso": 1.0
+        },
+        {
+          "ordem": 18,
+          "n_populacao": 4,
+          "n_amostra": 4,
+          "peso": 1.0
+        },
+        {
+          "ordem": 19,
+          "n_populacao": 6,
+          "n_amostra": 6,
+          "peso": 1.0
+        },
+        {
+          "ordem": 20,
+          "n_populacao": 151,
+          "n_amostra": 151,
+          "peso": 1.0
+        },
+        {
+          "ordem": 21,
+          "n_populacao": 25,
+          "n_amostra": 25,
+          "peso": 1.0
+        },
+        {
+          "ordem": 22,
+          "n_populacao": 10,
+          "n_amostra": 10,
+          "peso": 1.0
+        },
+        {
+          "ordem": 23,
+          "n_populacao": 1,
+          "n_amostra": 1,
+          "peso": 1.0
+        }
+      ],
+      "sha256_amostra": "c157ed8dfa70273a",
+      "mb_amostra": 2.9
+    },
+    {
+      "arquivo_origem": "Q6WV13_9MAXI_Somermeyer_2022.csv",
+      "n_populacao": 31401,
+      "n_amostra": 20082,
+      "fracao": 0.6395,
+      "semente": 20261126,
+      "min_por_estrato": 200,
+      "estratos": [
+        {
+          "ordem": 1,
+          "n_populacao": 1141,
+          "n_amostra": 727,
+          "peso": 1.5695
+        },
+        {
+          "ordem": 2,
+          "n_populacao": 15992,
+          "n_amostra": 10186,
+          "peso": 1.57
+        },
+        {
+          "ordem": 3,
+          "n_populacao": 8762,
+          "n_amostra": 5581,
+          "peso": 1.57
+        },
+        {
+          "ordem": 4,
+          "n_populacao": 3575,
+          "n_amostra": 2277,
+          "peso": 1.57
+        },
+        {
+          "ordem": 5,
+          "n_populacao": 1300,
+          "n_amostra": 828,
+          "peso": 1.57
+        },
+        {
+          "ordem": 6,
+          "n_populacao": 409,
+          "n_amostra": 261,
+          "peso": 1.567
+        },
+        {
+          "ordem": 7,
+          "n_populacao": 159,
+          "n_amostra": 159,
+          "peso": 1.0
+        },
+        {
+          "ordem": 8,
+          "n_populacao": 45,
+          "n_amostra": 45,
+          "peso": 1.0
+        },
+        {
+          "ordem": 9,
+          "n_populacao": 9,
+          "n_amostra": 9,
+          "peso": 1.0
+        },
+        {
+          "ordem": 10,
+          "n_populacao": 6,
+          "n_amostra": 6,
+          "peso": 1.0
+        },
+        {
+          "ordem": 11,
+          "n_populacao": 1,
+          "n_amostra": 1,
+          "peso": 1.0
+        },
+        {
+          "ordem": 12,
+          "n_populacao": 1,
+          "n_amostra": 1,
+          "peso": 1.0
+        },
+        {
+          "ordem": 13,
+          "n_populacao": 1,
+          "n_amostra": 1,
+          "peso": 1.0
+        }
+      ],
+      "sha256_amostra": "987542e5b688217b",
+      "mb_amostra": 5.0
+    },
+    {
+      "arquivo_origem": "Q8WTC7_9CNID_Somermeyer_2022.csv",
+      "n_populacao": 33510,
+      "n_amostra": 20110,
+      "fracao": 0.6001,
+      "semente": 20261126,
+      "min_por_estrato": 200,
+      "estratos": [
+        {
+          "ordem": 1,
+          "n_populacao": 1201,
+          "n_amostra": 717,
+          "peso": 1.675
+        },
+        {
+          "ordem": 2,
+          "n_populacao": 11260,
+          "n_amostra": 6720,
+          "peso": 1.6756
+        },
+        {
+          "ordem": 3,
+          "n_populacao": 11641,
+          "n_amostra": 6948,
+          "peso": 1.6754
+        },
+        {
+          "ordem": 4,
+          "n_populacao": 5762,
+          "n_amostra": 3439,
+          "peso": 1.6755
+        },
+        {
+          "ordem": 5,
+          "n_populacao": 2324,
+          "n_amostra": 1387,
+          "peso": 1.6756
+        },
+        {
+          "ordem": 6,
+          "n_populacao": 857,
+          "n_amostra": 511,
+          "peso": 1.6771
+        },
+        {
+          "ordem": 7,
+          "n_populacao": 277,
+          "n_amostra": 200,
+          "peso": 1.385
+        },
+        {
+          "ordem": 8,
+          "n_populacao": 98,
+          "n_amostra": 98,
+          "peso": 1.0
+        },
+        {
+          "ordem": 9,
+          "n_populacao": 27,
+          "n_amostra": 27,
+          "peso": 1.0
+        },
+        {
+          "ordem": 10,
+          "n_populacao": 20,
+          "n_amostra": 20,
+          "peso": 1.0
+        },
+        {
+          "ordem": 11,
+          "n_populacao": 10,
+          "n_amostra": 10,
+          "peso": 1.0
+        },
+        {
+          "ordem": 12,
+          "n_populacao": 4,
+          "n_amostra": 4,
+          "peso": 1.0
+        },
+        {
+          "ordem": 13,
+          "n_populacao": 2,
+          "n_amostra": 2,
+          "peso": 1.0
+        },
+        {
+          "ordem": 14,
+          "n_populacao": 6,
+          "n_amostra": 6,
+          "peso": 1.0
+        },
+        {
+          "ordem": 16,
+          "n_populacao": 2,
+          "n_amostra": 2,
+          "peso": 1.0
+        },
+        {
+          "ordem": 17,
+          "n_populacao": 3,
+          "n_amostra": 3,
+          "peso": 1.0
+        },
+        {
+          "ordem": 18,
+          "n_populacao": 4,
+          "n_amostra": 4,
+          "peso": 1.0
+        },
+        {
+          "ordem": 19,
+          "n_populacao": 1,
+          "n_amostra": 1,
+          "peso": 1.0
+        },
+        {
+          "ordem": 20,
+          "n_populacao": 1,
+          "n_amostra": 1,
+          "peso": 1.0
+        },
+        {
+          "ordem": 21,
+          "n_populacao": 4,
+          "n_amostra": 4,
+          "peso": 1.0
+        },
+        {
+          "ordem": 22,
+          "n_populacao": 1,
+          "n_amostra": 1,
+          "peso": 1.0
+        },
+        {
+          "ordem": 24,
+          "n_populacao": 1,
+          "n_amostra": 1,
+          "peso": 1.0
+        },
+        {
+          "ordem": 41,
+          "n_populacao": 1,
+          "n_amostra": 1,
+          "peso": 1.0
+        },
+        {
+          "ordem": 42,
+          "n_populacao": 2,
+          "n_amostra": 2,
+          "peso": 1.0
+        },
+        {
+          "ordem": 43,
+          "n_populacao": 1,
+          "n_amostra": 1,
+          "peso": 1.0
+        }
+      ],
+      "sha256_amostra": "08c59cbcdf009324",
+      "mb_amostra": 5.3
+    },
+    {
+      "arquivo_origem": "SPG1_STRSG_Wu_2016.csv",
+      "n_populacao": 149360,
+      "n_amostra": 20066,
+      "fracao": 0.1343,
+      "semente": 20261126,
+      "min_por_estrato": 200,
+      "estratos": [
+        {
+          "ordem": 1,
+          "n_populacao": 76,
+          "n_amostra": 76,
+          "peso": 1.0
+        },
+        {
+          "ordem": 2,
+          "n_populacao": 2091,
+          "n_amostra": 280,
+          "peso": 7.4679
+        },
+        {
+          "ordem": 3,
+          "n_populacao": 26019,
+          "n_amostra": 3484,
+          "peso": 7.4681
+        },
+        {
+          "ordem": 4,
+          "n_populacao": 121174,
+          "n_amostra": 16226,
+          "peso": 7.4679
+        }
+      ],
+      "sha256_amostra": "961c689e6e86fadb",
+      "mb_amostra": 9.4
+    },
+    {
+      "arquivo_origem": "TRPB1_THEMA_Tm9D8_Johnston_2024.csv",
+      "n_populacao": 159129,
+      "n_amostra": 20067,
+      "fracao": 0.1261,
+      "semente": 20261126,
+      "min_por_estrato": 200,
+      "estratos": [
+        {
+          "ordem": 1,
+          "n_populacao": 77,
+          "n_amostra": 77,
+          "peso": 1.0
+        },
+        {
+          "ordem": 2,
+          "n_populacao": 2166,
+          "n_amostra": 272,
+          "peso": 7.9632
+        },
+        {
+          "ordem": 3,
+          "n_populacao": 27368,
+          "n_amostra": 3440,
+          "peso": 7.9558
+        },
+        {
+          "ordem": 4,
+          "n_populacao": 129518,
+          "n_amostra": 16278,
+          "peso": 7.9566
+        }
+      ],
+      "sha256_amostra": "755a1ba812d97e10",
+      "mb_amostra": 8.2
+    },
+    {
+      "arquivo_origem": "VH14_Li_2023.csv",
+      "n_populacao": 35889,
+      "n_amostra": 20410,
+      "fracao": 0.5687,
+      "semente": 20261126,
+      "min_por_estrato": 200,
+      "estratos": [
+        {
+          "ordem": 1,
+          "n_populacao": 437,
+          "n_amostra": 244,
+          "peso": 1.791
+        },
+        {
+          "ordem": 2,
+          "n_populacao": 2693,
+          "n_amostra": 1501,
+          "peso": 1.7941
+        },
+        {
+          "ordem": 3,
+          "n_populacao": 15569,
+          "n_amostra": 8676,
+          "peso": 1.7945
+        },
+        {
+          "ordem": 4,
+          "n_populacao": 5213,
+          "n_amostra": 2905,
+          "peso": 1.7945
+        },
+        {
+          "ordem": 5,
+          "n_populacao": 856,
+          "n_amostra": 477,
+          "peso": 1.7945
+        },
+        {
+          "ordem": 6,
+          "n_populacao": 295,
+          "n_amostra": 200,
+          "peso": 1.475
+        },
+        {
+          "ordem": 7,
+          "n_populacao": 1338,
+          "n_amostra": 746,
+          "peso": 1.7936
+        },
+        {
+          "ordem": 8,
+          "n_populacao": 2452,
+          "n_amostra": 1366,
+          "peso": 1.795
+        },
+        {
+          "ordem": 9,
+          "n_populacao": 2898,
+          "n_amostra": 1615,
+          "peso": 1.7944
+        },
+        {
+          "ordem": 10,
+          "n_populacao": 2344,
+          "n_amostra": 1306,
+          "peso": 1.7948
+        },
+        {
+          "ordem": 11,
+          "n_populacao": 438,
+          "n_amostra": 244,
+          "peso": 1.7951
+        },
+        {
+          "ordem": 12,
+          "n_populacao": 71,
+          "n_amostra": 71,
+          "peso": 1.0
+        },
+        {
+          "ordem": 13,
+          "n_populacao": 176,
+          "n_amostra": 176,
+          "peso": 1.0
+        },
+        {
+          "ordem": 14,
+          "n_populacao": 246,
+          "n_amostra": 200,
+          "peso": 1.23
+        },
+        {
+          "ordem": 15,
+          "n_populacao": 310,
+          "n_amostra": 200,
+          "peso": 1.55
+        },
+        {
+          "ordem": 16,
+          "n_populacao": 270,
+          "n_amostra": 200,
+          "peso": 1.35
+        },
+        {
+          "ordem": 17,
+          "n_populacao": 195,
+          "n_amostra": 195,
+          "peso": 1.0
+        },
+        {
+          "ordem": 18,
+          "n_populacao": 73,
+          "n_amostra": 73,
+          "peso": 1.0
+        },
+        {
+          "ordem": 19,
+          "n_populacao": 15,
+          "n_amostra": 15,
+          "peso": 1.0
+        }
+      ],
+      "sha256_amostra": "e58c061d3123f2c0",
+      "mb_amostra": 5.8
+    }
+  ]
+}

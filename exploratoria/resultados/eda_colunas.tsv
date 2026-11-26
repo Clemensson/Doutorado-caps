@@ -1,0 +1,37 @@
+conjunto	coluna	tipo	n	ausentes	min	max	media	mediana	dp	q1	q3	iqr	mad	distintos	fracao_1	duplicados	ordem_min	ordem_max
+CAPSD_AAV2S_Sinai_2021	DMS_score	numerica	42328	0	-9.5447	9.5365	-1.2259	-0.8975	3.0446	-3.9767	1.2919	5.2686	2.5871	37636				
+CAPSD_AAV2S_Sinai_2021	DMS_score_bin	binaria	42328	0										2	0.5177			
+CAPSD_AAV2S_Sinai_2021	mutant	texto	42328	0										42328		0.0	1.0	28.0
+D7PM05_CLYGR_Somermeyer_2022	DMS_score	numerica	24515	0	590.0	40086.9148	13075.7618	9932.8573	12531.0264	590.0	25749.2353	25159.2353	9342.8573	16705				
+D7PM05_CLYGR_Somermeyer_2022	DMS_score_bin	binaria	24515	0										2	0.4876			
+D7PM05_CLYGR_Somermeyer_2022	mutant	texto	24515	0										24515		0.0	1.0	23.0
+F7YBW8_MESOW_Aakre_2015	DMS_score	numerica	9192	0	-0.0507	1.2037	0.0306	-0.0017	0.1409	-0.0067	0.0058	0.0125	0.0058	8094				
+F7YBW8_MESOW_Aakre_2015	DMS_score_bin	binaria	9192	0										2	0.5			
+F7YBW8_MESOW_Aakre_2015	mutant	texto	9192	0										9192		0.0	1.0	4.0
+GFP_AEQVI_Sarkisyan_2016	DMS_score	numerica	51714	0	1.2834	4.1231	2.6579	3.2873	1.0586	1.4285	3.6156	2.187	0.4486	51238				
+GFP_AEQVI_Sarkisyan_2016	DMS_score_bin	binaria	51714	0										2	0.5818			
+GFP_AEQVI_Sarkisyan_2016	mutant	texto	51714	0										51714		0.0	1.0	15.0
+HIS7_YEAST_Pokusaeva_2019	DMS_score	numerica	496137	0	0.0	2.3275	0.6191	0.8786	0.449	0.0	0.9951	0.9951	0.1626	348073				
+HIS7_YEAST_Pokusaeva_2019	DMS_score_bin	binaria	496137	0										2	0.6656			
+HIS7_YEAST_Pokusaeva_2019	mutant	texto	496137	0										496137		0.0	1.0	28.0
+PHOT_CHLRE_Chen_2023	DMS_score	numerica	167529	0	0.0194	1.7805	0.6402	0.6317	0.2933	0.4069	0.8585	0.4517	0.2259	167524				
+PHOT_CHLRE_Chen_2023	DMS_score_bin	binaria	167529	0										2	0.5			
+PHOT_CHLRE_Chen_2023	mutant	texto	167529	0										167529		0.0	1.0	15.0
+Q65J43_BACLD_g4_Thomas_2025	DMS_score	numerica	15404	0	1.0	3.8697	1.1881	1.0	0.5441	1.0	1.0	0.0	0.0	2007				
+Q65J43_BACLD_g4_Thomas_2025	DMS_score_bin	binaria	15404	0										2	0.1259			
+Q65J43_BACLD_g4_Thomas_2025	mutant	texto	15404	0										15404		0.0	1.0	23.0
+Q6WV13_9MAXI_Somermeyer_2022	DMS_score	numerica	31401	0	590.0	27865.0022	11297.642	13523.5895	6481.1523	5160.3846	15908.2725	10747.8879	3282.4877	31114				
+Q6WV13_9MAXI_Somermeyer_2022	DMS_score_bin	binaria	31401	0										2	0.2693			
+Q6WV13_9MAXI_Somermeyer_2022	mutant	texto	31401	0										31401		0.0	1.0	13.0
+Q8WTC7_9CNID_Somermeyer_2022	DMS_score	numerica	33510	0	449.0	18688.7643	6302.8076	7429.7222	3485.4125	3342.3774	8753.0509	5410.6735	1821.5945	32620				
+Q8WTC7_9CNID_Somermeyer_2022	DMS_score_bin	binaria	33510	0										2	0.692			
+Q8WTC7_9CNID_Somermeyer_2022	mutant	texto	33510	0										33510		0.0	1.0	43.0
+SPG1_STRSG_Wu_2016	DMS_score	numerica	149360	0	0.0	8.762	0.0805	0.0034	0.3954	0.0014	0.009	0.0076	0.0034	37520				
+SPG1_STRSG_Wu_2016	DMS_score_bin	binaria	149360	0										2	0.072			
+SPG1_STRSG_Wu_2016	mutant	texto	149360	0										149360		0.0	1.0	4.0
+TRPB1_THEMA_Tm9D8_Johnston_2024	DMS_score	numerica	159129	0	0.0	1.0	0.0243	0.0124	0.0579	0.0017	0.0238	0.0221	0.011	123701				
+TRPB1_THEMA_Tm9D8_Johnston_2024	DMS_score_bin	binaria	159129	0										2	0.0069			
+TRPB1_THEMA_Tm9D8_Johnston_2024	mutant	texto	159129	0										159129		0.0	1.0	4.0
+VH14_Li_2023	DMS_score	numerica	35889	0	-6.7147	2.4183	-1.626	-1.0657	1.9047	-3.3684	0.0379	3.4063	1.355	32711				
+VH14_Li_2023	DMS_score_bin	binaria	35889	0										2	0.4495			
+VH14_Li_2023	mutant	texto	35889	0										35889		0.0	1.0	19.0

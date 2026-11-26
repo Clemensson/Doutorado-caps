@@ -72,8 +72,12 @@ hpc_fcnn_rerun/.venv/
 hpc_fcnn_rerun/merged.tsv
 
 # Exploratoria: figuras e resultados gerados
-exploratoria/figuras/*.png
-exploratoria/figuras/*.pdf
-exploratoria/figuras/*.svg
-exploratoria/resultados/**
+# Exploratoria. Versionamos a EVIDENCIA (tabelas pequenas, figuras do relatorio) e
+# nao os intermediarios grandes ou regeneraveis:
+#   amostras/  73 MB de CSV derivado — reconstruivel pelo script, semente fixa
+#   perfis/    saida bruta da skill — reconstruivel
+exploratoria/resultados/amostras/**
+!exploratoria/resultados/amostras/manifesto.json
+exploratoria/resultados/perfis/**
+exploratoria/RELATORIO_EDA.html
 !exploratoria/resultados/.gitkeep
