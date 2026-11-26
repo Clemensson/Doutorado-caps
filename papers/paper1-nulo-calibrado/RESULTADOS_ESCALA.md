@@ -130,6 +130,22 @@ paramétrica e comparar com a isotônica, o que não foi feito. Mas é a direç�
 dados apontam, e é biologicamente interpretável de um jeito que "não linearidade
 monotônica genérica" não é.
 
+> ✅ **CONFIRMADO VISUALMENTE em 26/11/2026** — `exploratoria/RESULTADO_ANALISE1.md`.
+> Plotando o medido contra o previsto por um modelo aditivo nos 12 conjuntos, a forma
+> é **sigmoide em 10 deles**: piso achatado, transição íngreme, saturação. E o
+> mistério do log parcial se resolve — **o log comprime a cauda superior, mas o traço
+> dominante é o piso inferior, e nenhuma função logarítmica produz um platô
+> embaixo.** Duas exceções informativas: `Phototropin` é quase linear (e é onde o NAC
+> não achou interação) e `TrpB` entorta para o outro lado, com retornos decrescentes.
+>
+> Continua sendo descrição visual, não ajuste: nenhuma sigmoide foi ajustada nem
+> testada contra alternativas. O passo agora é trocar a isotônica por uma família
+> paramétrica de 4 parâmetros, cujos valores teriam significado biofísico.
+>
+> Achado adicional que concorda com o NAC: o excesso de Spearman sobre Pearson separa
+> os conjuntos em dois grupos, e os quatro com ρ < r — TrpB, NucB, ParD3, IGP — são
+> exatamente aqueles em que o nulo calibrado encontrou interação específica.
+
 ---
 
 ## 5. Ressalvas
