@@ -163,16 +163,21 @@ O modelo aditivo **melhora** em escala log nos três conjuntos testáveis (+0,00
 
 ## A afirmação do capítulo
 
-> Existe estrutura não aditiva forte e inequívoca nas paisagens mais completas do
-> benchmark. Ela é **predominantemente epistasia global — escala — e não epistasia
-> específica entre mutações.**
+> A vantagem de um modelo flexível sobre o nulo aditivo tem **duas componentes, e
+> ambas são reais.**
 >
-> Epistasia específica **existe e é calibradamente detectável**, mas apenas no regime
-> de **interpolação** e apenas na **magnitude** da correlação: positiva em 5 de 5
-> conjuntos, todas as células no piso de significância. Ela **não melhora o
-> ordenamento em nenhum regime**, e na **extrapolação** — que é o que a engenharia de
-> multimutantes requer — é inconsistente e frequentemente pior que um modelo de
-> escala sem nenhuma capacidade de interação.
+> Cerca de **metade** do ganho em Pearson é **epistasia global** — um efeito de
+> escala, reproduzível por um modelo monotônico sem nenhuma capacidade de interação.
+>
+> A outra parte é **epistasia específica**, e ela se manifesta onde escala não pode:
+> no **ordenamento**. A FCNN melhora o Spearman sobre o aditivo em 10 de 12 conjuntos
+> na interpolação e 9 de 12 na extrapolação. Um **ridge pareado não captura isso** —
+> ele sobreajusta e *piora* o ordenamento nos mesmos conjuntos — o que torna modelos
+> de interação pareada um instrumento inadequado para medir epistasia específica.
+>
+> O que **não** se sustenta é atribuir ao aprendizado de epistasia *todo* o
+> desempenho: metade é escala, e a progressão da Fig. 2E permanece artefato de
+> redução de variância, reproduzível por um modelo aditivo.
 >
 > Consequentemente, **o desempenho de modelos flexíveis em MLDE não é evidência de
 > aprendizado de epistasia** sem que escala e interação sejam separadas. Metade da
@@ -192,6 +197,28 @@ Três coisas, que custam pouco e que nenhum trabalho de MLDE que examinamos faz:
    aprendida — antes de atribuir desempenho a interação.
 3. **Calibrar contra um nulo aditivo casado**, não contra zero. A expectativa do nulo
    não é zero, e pode ser de qualquer sinal.
+
+### 9. A FCNN dentro do nulo: a conclusão se inverte em parte
+
+O experimento 5 pôs a FCNN dentro do laço do nulo — o que faltava, porque até então
+calibramos o pareado e o modelo de escala, não a rede.
+
+| Conjunto | Efeito da **FCNN** | pareado | escala |
+|---|---|---|---|
+| GB1 | **0,4661** | 0,3286 | 0,1574 |
+| TrpB | **0,3961** | 0,2570 | 0,1676 |
+| ParD3 | **0,3489** | 0,3114 | 0,1776 |
+
+(Pearson, interpolação, carga de treino 3.) Ordenamento consistente: **FCNN > pareado
+> escala**, e a FCNN no piso de significância em 12/12 células.
+
+E o decisivo: **a FCNN melhora o ordenamento** (Spearman observado positivo em 10/12
+na interpolação, 9/12 na extrapolação), enquanto o pareado vai na direção oposta nos
+mesmos conjuntos — GB1 −0,24 contra +0,10 da rede.
+
+Verificado que a concessão de hiperparâmetros fixos **não** explica isso: o handicap
+do nulo é de −0,018 em média, e em GB1 contribui 1,4% do efeito.
+*(`RESULTADOS_NAC_FCNN.md`)*
 
 ---
 
@@ -255,3 +282,4 @@ reportada com precisão decimal.
 | `RESULTADOS_MAPA.md` | resultado 6 — **o mapa de regimes, 15 células** |
 | `RESULTADOS_SENSIBILIDADE.md` | resultado 7 — `val_frac` e sementes de fold |
 | `RESULTADOS_ESCALA.md` | resultado 8 — escala *vs* censura |
+| `RESULTADOS_NAC_FCNN.md` | resultado 9 — **a FCNN no nulo; revisa a conclusão** |
